@@ -1,0 +1,517 @@
+{
+    "Configuration": {
+        "Name": "Assets",
+        "FormatVersion": 2,
+        "LastEditTime": 1389048717017053900
+    },
+    "Assets": {
+        "Meshes/SM_CannonBase.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3819707595,
+                "TimeStamp": 1389136543963336600,
+                "LastEditTime": 1389136544994336600
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Meshes/SM_CannonBase.VMESH": {
+            "AssetType": "StaticMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Meshes/SM_CannonBase.VMESH_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/CannonBase_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4214475452,
+                "TimeStamp": 1389136543949336600,
+                "LastEditTime": 1389136544963336600
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Meshes/SM_Envrionment.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4169631639,
+                "TimeStamp": 1389381615775315100,
+                "LastEditTime": 1389381616861315100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Meshes/SM_Envrionment.VMESH": {
+            "AssetType": "StaticMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Meshes/SM_Envrionment.VMESH_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/OffWhite.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 715859103,
+                "TimeStamp": 1389378728094466600,
+                "LastEditTime": 1389381616831315100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Meshes/SM_FrontWall.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 810654650,
+                "TimeStamp": 1389145191393909700,
+                "LastEditTime": 1389145192299909700
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Meshes/SM_FrontWall.VMESH": {
+            "AssetType": "StaticMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Meshes/SM_FrontWall.VMESH_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/OffWhite.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3948966193,
+                "TimeStamp": 1389145191372909700,
+                "LastEditTime": 1389381616799315100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_BallBucket.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/MOD_BallBucket.model_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/Gray_128.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1192917962,
+                "TimeStamp": 1389646501940498600,
+                "LastEditTime": 1389646505485498600
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_BallBucket.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 229505624,
+                "TimeStamp": 1389646501999498600,
+                "LastEditTime": 1389646505038498600
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_BlueCapsule.MODEL": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/MOD_BlueCapsule.MODEL_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/Flat-Blue.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2275326055,
+                "TimeStamp": 1389382088602547700,
+                "LastEditTime": 1389382089747662200
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_BlueCapsule.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4078537855,
+                "TimeStamp": 1389382088607548200,
+                "LastEditTime": 1389382089739661400
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_Cannon.MODEL": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/MOD_Cannon.MODEL_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "Textures/Cannon_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4050886396,
+                "TimeStamp": 1389136455745336600,
+                "LastEditTime": 1389136456751336600
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/MOD_GameBall.MODEL": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/MOD_GameBall.MODEL_data/materials.xml",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib",
+                    "vcolors.dds"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3739656348,
+                "TimeStamp": 1389127326850552700,
+                "LastEditTime": 1389127327857552700
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Prefabs/GameBall.prefab": {
+            "AssetType": "Prefab",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 971970396,
+                "TimeStamp": 1389121677964149100,
+                "LastEditTime": 1389121678834149100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Prefabs/GameBallPrefab.prefab": {
+            "AssetType": "Prefab",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2692216821,
+                "TimeStamp": 1389059514657681100,
+                "LastEditTime": 1389118610377749900
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/Cannon_DIFFUSE.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2676744354,
+                "TimeStamp": 1389051476532814900,
+                "LastEditTime": 1389052825014456700
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/CannonBase_DIFFUSE.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 647388158,
+                "TimeStamp": 1389051136932814900,
+                "LastEditTime": 1389052825023457600
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/Flat-Blue.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2779823383,
+                "TimeStamp": 1389053280357986500,
+                "LastEditTime": 1389382089739661400
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/Gray_128.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 972434969,
+                "TimeStamp": 1388712570000000000,
+                "LastEditTime": 1389646505098498600
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 128,
+                "Height": 128,
+                "HasAlpha": false,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/OffWhite.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3524460337,
+                "TimeStamp": 1389053776122558000,
+                "LastEditTime": 1389381616775315100
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        }
+    },
+    "TrackedFiles": {
+        "Meshes/SM_CannonBase.VMESH_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389053059395892500,
+            "LastEditTime": 1389052786704626100
+        },
+        "Meshes/SM_Envrionment.VMESH_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389054072717839800,
+            "LastEditTime": 1389053856972642200
+        },
+        "Meshes/SM_FrontWall.VMESH_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389138271248336600,
+            "LastEditTime": 1389137783386336600
+        },
+        "Models/MOD_BallBucket.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389380610209673400,
+            "LastEditTime": 1389380610684720900
+        },
+        "Models/MOD_BlueCapsule.MODEL_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389053365251475000,
+            "LastEditTime": 1389053365652515100
+        },
+        "Models/MOD_Cannon.MODEL_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389053027388692100,
+            "LastEditTime": 1389052574617419500
+        },
+        "Models/MOD_GameBall.MODEL_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389052934541408300,
+            "LastEditTime": 1389052935541508300
+        }
+    }
+}

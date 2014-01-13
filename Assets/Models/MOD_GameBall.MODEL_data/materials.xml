@@ -1,0 +1,5 @@
+<root>
+    <Materials>
+        <Material name="M_Ball" diffuse="\VColors.DDS" transparency="opaque" doublesided="FALSE" specmul="0" specexp="2" parallaxscale="-0.03" parallaxbias="-0.015" lightmapsize="128,128" lightmapgran="0" lightmapID="-1" />
+    </Materials>
+</root>

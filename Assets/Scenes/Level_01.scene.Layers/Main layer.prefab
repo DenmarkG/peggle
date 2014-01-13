@@ -1,0 +1,263 @@
+<root>
+  <info createdby="vForge version 2013.2.5.1" />
+  <header version="0" name="" description="This is a simple Demo to test several features of the engine in one project." category="" convertible="True" autosavebinary="True" relativefilenames="False" />
+  <thumbnail type="jpg" size="4056">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</thumbnail>
+  <shape class="StaticMeshShape">
+    <property name="ScaleX" value="5" />
+    <property name="ScaleY" value="5" />
+    <property name="ScaleZ" value="5" />
+    <property name="UniformScaling" value="5" />
+    <property name="NavMeshUsage" value="IncludeInNavMesh" />
+    <property name="MeshFileName" value="Meshes/SM_Envrionment.VMESH" />
+    <property name="CustomMaterialSet" value="&lt;None&gt;" />
+    <property name="LODUsage" value="FarClipOnly" />
+    <property name="LODDefinitionFile" value="" />
+    <property name="FarClipDistance" value="0" />
+    <property name="VisibleBitmask" value="4294967295" />
+    <property name="LightInfluenceBitmask" value="65535" />
+    <property name="CastStaticShadows" value="True" />
+    <property name="CastDynamicShadows" value="False" />
+    <property name="ShowLightgridWidget" value="False" />
+    <property name="SampleOfsX" value="0" />
+    <property name="SampleOfsY" value="0" />
+    <property name="SampleOfsZ" value="0" />
+    <property name="LightmapSizeMultiplier" value="1" />
+    <property name="CustomLightmap" value="" />
+    <property name="CollisionBitmask" value="65535" />
+    <property name="CollisionBehavior" value="FromFile" />
+    <property name="CollisionLayerID" value="2" />
+    <property name="SubSystemID" value="0" />
+    <property name="SubSystemDontCollideWith" value="0" />
+    <property name="SystemGroup" value="0" />
+    <property name="WeldingType" value="None" />
+    <property name="PreviewVisibility" value="False" />
+    <property name="ObjectKey" value="" />
+    <property name="Visible" value="True" />
+    <property name="Position" value="0,0,0" />
+    <property name="Orientation" value="0,0,0" />
+    <property name="Scaling" value="5,5,5" />
+    <property name="TextLabel" value="" />
+    <property name="ShapeName" value="Environment" />
+    <property name="UserDataString" value="" />
+    <property name="ExportShape" value="True" />
+    <property name="UniqueID" value="16127477955961028615" />
+    <linktarget class="LinkTargetVisiblity" name="visibility determined by" ID="VisibilityTarget_1" />
+  </shape>
+  <shape class="EntityShape">
+    <property name="ModelFile" value="" />
+    <property name="CustomMaterialSet" value="&lt;None&gt;" />
+    <property name="EntityClass" value="VisBaseEntity_cl" />
+    <property name="ClassDefinitionTemplate" value="" />
+    <property name="EntityPropertyString" value="" />
+    <property name="ScaleX" value="1" />
+    <property name="ScaleY" value="1" />
+    <property name="ScaleZ" value="1" />
+    <property name="UniformScaling" value="1" />
+    <property name="NavMeshUsage" value="IncludeInNavMesh" />
+    <property name="VisibleBitmask" value="4294967295" />
+    <property name="NearClipDistance" value="0" />
+    <property name="FarClipDistance" value="0" />
+    <property name="RenderOrderPriority" value="0" />
+    <property name="CastDynamicShadows" value="False" />
+    <property name="CastStaticShadows" value="False" />
+    <property name="LightInfluenceBitmask" value="1" />
+    <property name="AmbientColor" value="0,0,0,255" />
+    <property name="ShowLightgridWidget" value="False" />
+    <property name="SampleOfsX" value="0" />
+    <property name="SampleOfsY" value="0" />
+    <property name="SampleOfsZ" value="0" />
+    <property name="ObjectKey" value="" />
+    <property name="Visible" value="True" />
+    <property name="Position" value="777.6758,0,1135.941" />
+    <property name="Orientation" value="-180,0,0" />
+    <property name="Scaling" value="1,1,1" />
+    <property name="TextLabel" value="" />
+    <property name="ShapeName" value="Camera" />
+    <property name="UserDataString" value="" />
+    <property name="ExportShape" value="True" />
+    <property name="UniqueID" value="16127477955961028617" />
+    <component class="VOrbitCamera" paramstring="ComponentID=;Enabled=True;Collides=False;Follow=False;FollowFixed=True;Zoom=False;DepthOfField=False;InitialYaw=0;InitialPitch=0;MinimumPitch=-89;MaximumPitch=89;CameraDistance=500;MinimalDistance=100;MaximalDistance=1000;RelativeLookAtHeight=0.5;CameraSensitivity=200;MoveSmoothness=0.3;" visible="True" serializable="True" editable="True" removable="True" />
+  </shape>
+  <shape class="Group3DShape">
+    <property name="Visible" value="True" />
+    <property name="Position" value="0,0,0" />
+    <property name="Orientation" value="0,0,0" />
+    <property name="Scaling" value="1,1,1" />
+    <property name="TextLabel" value="" />
+    <property name="ShapeName" value="CannonGroup" />
+    <property name="UserDataString" value="" />
+    <property name="ExportShape" value="True" />
+    <property name="UniqueID" value="16127477955961028624" />
+    <shape class="EntityShape">
+      <property name="ModelFile" value="Models/MOD_Cannon.MODEL" />
+      <property name="CustomMaterialSet" value="&lt;None&gt;" />
+      <property name="EntityClass" value="VisBaseEntity_cl" />
+      <property name="ClassDefinitionTemplate" value="" />
+      <property name="EntityPropertyString" value="" />
+      <property name="ScaleX" value="1" />
+      <property name="ScaleY" value="1" />
+      <property name="ScaleZ" value="1" />
+      <property name="UniformScaling" value="1" />
+      <property name="NavMeshUsage" value="IncludeInNavMesh" />
+      <property name="VisibleBitmask" value="4294967295" />
+      <property name="NearClipDistance" value="0" />
+      <property name="FarClipDistance" value="0" />
+      <property name="RenderOrderPriority" value="0" />
+      <property name="CastDynamicShadows" value="False" />
+      <property name="CastStaticShadows" value="False" />
+      <property name="LightInfluenceBitmask" value="1" />
+      <property name="AmbientColor" value="0,0,0,255" />
+      <property name="ShowLightgridWidget" value="False" />
+      <property name="SampleOfsX" value="0" />
+      <property name="SampleOfsY" value="0" />
+      <property name="SampleOfsZ" value="0" />
+      <property name="ObjectKey" value="" />
+      <property name="Visible" value="True" />
+      <property name="Position" value="0,0,1718.005" />
+      <property name="Orientation" value="0,-180,0" />
+      <property name="Scaling" value="1,1,1" />
+      <property name="TextLabel" value="" />
+      <property name="ShapeName" value="Cannon" />
+      <property name="UserDataString" value="" />
+      <property name="ExportShape" value="True" />
+      <property name="UniqueID" value="16127477955961028623" />
+      <component class="VScriptComponent" paramstring="ComponentID=;ScriptFile=Scripts\092CannonControl.lua;" visible="True" serializable="True" editable="True" removable="True" />
+      <shape class="EntityShape">
+        <property name="ModelFile" value="" />
+        <property name="CustomMaterialSet" value="&lt;None&gt;" />
+        <property name="EntityClass" value="VisBaseEntity_cl" />
+        <property name="ClassDefinitionTemplate" value="" />
+        <property name="EntityPropertyString" value="" />
+        <property name="ScaleX" value="1" />
+        <property name="ScaleY" value="1" />
+        <property name="ScaleZ" value="1" />
+        <property name="UniformScaling" value="1" />
+        <property name="NavMeshUsage" value="IncludeInNavMesh" />
+        <property name="VisibleBitmask" value="4294967295" />
+        <property name="NearClipDistance" value="0" />
+        <property name="FarClipDistance" value="0" />
+        <property name="RenderOrderPriority" value="0" />
+        <property name="CastDynamicShadows" value="False" />
+        <property name="CastStaticShadows" value="False" />
+        <property name="LightInfluenceBitmask" value="1" />
+        <property name="AmbientColor" value="0,0,0,255" />
+        <property name="ShowLightgridWidget" value="False" />
+        <property name="SampleOfsX" value="0" />
+        <property name="SampleOfsY" value="0" />
+        <property name="SampleOfsZ" value="0" />
+        <property name="ObjectKey" value="BallSpawnPoint" />
+        <property name="Visible" value="True" />
+        <property name="Position" value="0,0,1558.247" />
+        <property name="Orientation" value="0,180,0" />
+        <property name="Scaling" value="1,1,1" />
+        <property name="TextLabel" value="" />
+        <property name="ShapeName" value="BallSpawnPoint" />
+        <property name="UserDataString" value="" />
+        <property name="ExportShape" value="True" />
+        <property name="UniqueID" value="16127477955961028630" />
+      </shape>
+    </shape>
+    <shape class="StaticMeshShape">
+      <property name="ScaleX" value="1" />
+      <property name="ScaleY" value="1" />
+      <property name="ScaleZ" value="1" />
+      <property name="UniformScaling" value="1" />
+      <property name="NavMeshUsage" value="IncludeInNavMesh" />
+      <property name="MeshFileName" value="Meshes/SM_CannonBase.VMESH" />
+      <property name="CustomMaterialSet" value="&lt;None&gt;" />
+      <property name="LODUsage" value="FarClipOnly" />
+      <property name="LODDefinitionFile" value="" />
+      <property name="FarClipDistance" value="0" />
+      <property name="VisibleBitmask" value="4294967295" />
+      <property name="LightInfluenceBitmask" value="65535" />
+      <property name="CastStaticShadows" value="True" />
+      <property name="CastDynamicShadows" value="False" />
+      <property name="ShowLightgridWidget" value="False" />
+      <property name="SampleOfsX" value="0" />
+      <property name="SampleOfsY" value="0" />
+      <property name="SampleOfsZ" value="0" />
+      <property name="LightmapSizeMultiplier" value="1" />
+      <property name="CustomLightmap" value="" />
+      <property name="CollisionBitmask" value="65535" />
+      <property name="CollisionBehavior" value="FromFile" />
+      <property name="CollisionLayerID" value="2" />
+      <property name="SubSystemID" value="0" />
+      <property name="SubSystemDontCollideWith" value="0" />
+      <property name="SystemGroup" value="0" />
+      <property name="WeldingType" value="None" />
+      <property name="PreviewVisibility" value="False" />
+      <property name="ObjectKey" value="" />
+      <property name="Visible" value="True" />
+      <property name="Position" value="0,0,1718.005" />
+      <property name="Orientation" value="0,-90,0" />
+      <property name="Scaling" value="1,1,1" />
+      <property name="TextLabel" value="" />
+      <property name="ShapeName" value="CannonBase" />
+      <property name="UserDataString" value="" />
+      <property name="ExportShape" value="True" />
+      <property name="UniqueID" value="16127477955961028619" />
+      <linktarget class="LinkTargetVisiblity" name="visibility determined by" ID="VisibilityTarget_1" />
+    </shape>
+  </shape>
+  <shape class="Group3DShape">
+    <property name="Visible" value="True" />
+    <property name="Position" value="0,0,0" />
+    <property name="Orientation" value="0,0,0" />
+    <property name="Scaling" value="1,1,1" />
+    <property name="TextLabel" value="" />
+    <property name="ShapeName" value="Lights" />
+    <property name="UserDataString" value="" />
+    <property name="ExportShape" value="True" />
+    <property name="UniqueID" value="16127477955961028625" />
+    <shape class="DynLightShape">
+      <property name="LightAttenuationCurve" value="Smooth" />
+      <property name="CustomAttenuationCurveTexture" value="\Atten\smooth.dds" />
+      <property name="Multiplier" value="1" />
+      <property name="DistanceFadeEnd" value="0" />
+      <property name="DistanceFadeStart" value="0" />
+      <property name="UseSpecular" value="True" />
+      <property name="LightType" value="Directional" />
+      <property name="SpotAngle" value="45" />
+      <property name="ProjectedTexture" value="" />
+      <property name="Radius" value="1000" />
+      <property name="Triggered" value="True" />
+      <property name="LightColor" value="255,255,255,255" />
+      <property name="CastStaticShadows" value="True" />
+      <property name="UsesLightMasks" value="False" />
+      <property name="AnimationCurve" value="" />
+      <property name="AnimationTiming" value="1" />
+      <property name="AnimationPhase" value="0" />
+      <property name="RemoveLightAfterAnimation" value="False" />
+      <property name="WorldInfluenceMask" value="255" />
+      <property name="ObjectInfluenceMask" value="255" />
+      <property name="VisibleBitmask" value="4294967295" />
+      <property name="IsStatic" value="True" />
+      <property name="ExportWhenNotRelevant" value="False" />
+      <property name="PreviewAsDynamicLight" value="True" />
+      <property name="TurnOffAfterLighting" value="True" />
+      <property name="ObjectKey" value="" />
+      <property name="Visible" value="True" />
+      <property name="Position" value="0,0,555.1609" />
+      <property name="Orientation" value="-180,35,-179.9973" />
+      <property name="Scaling" value="1,1,1" />
+      <property name="TextLabel" value="" />
+      <property name="ShapeName" value="MainLight" />
+      <property name="UserDataString" value="" />
+      <property name="ExportShape" value="True" />
+      <property name="UniqueID" value="16127477955961028618" />
+      <linktarget class="LinkTargetTriggerComponent" name="ToggleOn" ID="ToggleOn" />
+      <linktarget class="LinkTargetTriggerComponent" name="ToggleOff" ID="ToggleOff" />
+    </shape>
+  </shape>
+  <shape class="Group3DShape">
+    <property name="Visible" value="True" />
+    <property name="Position" value="0,0,0" />
+    <property name="Orientation" value="0,0,0" />
+    <property name="Scaling" value="1,1,1" />
+    <property name="TextLabel" value="" />
+    <property name="ShapeName" value="Capsules" />
+    <property name="UserDataString" value="" />
+    <property name="ExportShape" value="True" />
+    <property name="UniqueID" value="16127477955961028626" />
+  </shape>
+</root>

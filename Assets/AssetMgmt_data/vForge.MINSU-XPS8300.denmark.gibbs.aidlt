@@ -1,0 +1,19 @@
+meshes/sm_cannonbase.vcolmesh	meshes/sm_cannonbase.vcolmesh	
+meshes/sm_cannonbase.vmesh	meshes/sm_cannonbase.vmesh	LODSwitchDistances=
+meshes/sm_envrionment.vcolmesh	meshes/sm_envrionment.vcolmesh	
+meshes/sm_envrionment.vmesh	meshes/sm_envrionment.vmesh	LODSwitchDistances=
+meshes/sm_frontwall.vcolmesh	meshes/sm_frontwall.vcolmesh	
+meshes/sm_frontwall.vmesh	meshes/sm_frontwall.vmesh	LODSwitchDistances=
+models/mod_ballbucket.model	models/mod_ballbucket.model	LODSwitchDistances=
+models/mod_ballbucket.vcolmesh	models/mod_ballbucket.vcolmesh	
+models/mod_bluecapsule.model	models/mod_bluecapsule.model	LODSwitchDistances=
+models/mod_bluecapsule.vcolmesh	models/mod_bluecapsule.vcolmesh	
+models/mod_cannon.model	models/mod_cannon.model	LODSwitchDistances=
+models/mod_gameball.model	models/mod_gameball.model	LODSwitchDistances=
+prefabs/gameball.prefab	prefabs/gameball.prefab	
+prefabs/gameballprefab.prefab	prefabs/gameballprefab.prefab	
+textures/cannon_diffuse.tga	textures/cannon_diffuse.tga	sRGB=false
+textures/cannonbase_diffuse.tga	textures/cannonbase_diffuse.tga	sRGB=false
+textures/flat-blue.tga	textures/flat-blue.tga	sRGB=false
+textures/gray_128.tga	textures/gray_128.tga	sRGB=false
+textures/offwhite.tga	textures/offwhite.tga	sRGB=false
