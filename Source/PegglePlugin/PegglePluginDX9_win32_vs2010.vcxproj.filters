@@ -3,18 +3,14 @@
   <ItemGroup>
     <ClInclude Include="PegglePluginModule.h" />
     <ClInclude Include="PegglePluginPCH.h" />
-    <ClInclude Include="myComponent.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="TemplateAction.h" />
     <ClInclude Include="SimplePeg.h" />
     <ClInclude Include="..\PeggleApplication\PeggleApplicationPCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PegglePluginPCH.cpp" />
-    <ClCompile Include="myComponent.cpp" />
     <ClCompile Include="PluginMain.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="TemplateAction.cpp" />
     <ClCompile Include="SimplePeg.cpp" />
   </ItemGroup>
 </Project>

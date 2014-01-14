@@ -71,9 +71,9 @@ public:
 protected:
 	//define the variables to use as properties
 	//Exposed to vForge:
-	int pointValue;
-	int hitCount;
-	int scoreMultiplier;
+	int m_pointValue;
+	int m_hitCount;
+	int m_scoreMultiplier;
 
 	vHavokRigidBody *m_rigidBodyComponent;
 };

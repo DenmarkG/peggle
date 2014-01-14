@@ -9,6 +9,7 @@ function OnExpose(self)
   self.minPosition = -800
   self.maxPosition = 800
   self.moveSpeed = 8
+  self.bonusPoints = 500
 end
 
 function OnThink(self)
@@ -26,6 +27,7 @@ function OnObjectEnter(self, object)
 	if (object:GetKey() == "GameBall") then
 		G.HideBall(object)
 		G.ballsRemaining = G.ballsRemaining + 1
+		G.gameScore = G.gameScore + self.bonusPoints
 	end
 end
 

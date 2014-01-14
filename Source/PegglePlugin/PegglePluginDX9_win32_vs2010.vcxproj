@@ -19,9 +19,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="PegglePluginModule.h" />
     <ClInclude Include="PegglePluginPCH.h" />
-    <ClInclude Include="myComponent.h" />
     <ClInclude Include="SimplePeg.h" />
-    <ClInclude Include="TemplateAction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
@@ -30,10 +28,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dev DLL|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release DLL|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="myComponent.cpp" />
     <ClCompile Include="PluginMain.cpp" />
     <ClCompile Include="SimplePeg.cpp" />
-    <ClCompile Include="TemplateAction.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{789E94DE-ED72-4C0F-A6BB-65BE92BCA08C}</ProjectGuid>

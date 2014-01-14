@@ -11,8 +11,8 @@
 //
 
 #include "PegglePluginPCH.h"
-#include "myComponent.h"
 #include "GameManager.h"
+#include "SimplePeg.h"
 
 #include <Common/Base/KeyCode.h>
 
@@ -52,9 +52,9 @@ PegglePluginClass g_myComponents;
 //  note: g_myComponentModule is defined in stdfx.h
 //--------------------------------------------------------------------------------------------
 DECLARE_THIS_MODULE(g_myComponentModule, MAKE_VERSION(1,0),
-                    "Sample Plugin", 
+                    "Simple Plugin", 
                     "Havok",
-                    "A sample plugin for entities", &g_myComponents);
+                    "A simple plugin to allow use of the Simple Peg component", &g_myComponents);
 
 
 //--------------------------------------------------------------------------------------------
@@ -95,15 +95,8 @@ void PegglePluginClass::OnInitEnginePlugin()
   
   VISION_PLUGIN_ENSURE_LOADED(vFmodEnginePlugin);
 
-  // In some cases the compiler optimizes away the full class from the plugin since it seems to be dead code. 
-  // One workaround to prevent this is to add the following helper macro into the plugin initialization code:
-  FORCE_LINKDYNCLASS( MyComponent );
-
-  // [...]
-
   // Start our component managers and game manager here....
   MyGameManager::GlobalManager().OneTimeInit();
-  MyComponent_ComponentManager::GlobalManager().OneTimeInit();
   // [...]
 
   //---------------------------------------------------------------------------------------------------------
@@ -115,10 +108,12 @@ void PegglePluginClass::OnInitEnginePlugin()
 
   // Set to true to open the console at startup and print some data to the display
   Vision::GetConsoleManager()->Show( false );
-  pManager->Print( "Welcome to the console!" );
-  pManager->Print( "This module is called '%s'", g_myComponentModule.GetName() );
-  pManager->Print( "Type in 'help' for a list of all actions" );
-  pManager->Print( "Type in 'myAction' to test this projects demo action" );
+  
+  ////Examples: 
+  //pManager->Print( "Welcome to the console!" );
+  //pManager->Print( "This module is called '%s'", g_myComponentModule.GetName() );
+  //pManager->Print( "Type in 'help' for a list of all actions" );
+  //pManager->Print( "Type in 'myAction' to test this projects demo action" );
 }
 
 // Called before the plugin is unloaded
@@ -127,7 +122,6 @@ void PegglePluginClass::OnDeInitEnginePlugin()
   hkvLog::Info("PegglePluginClass:OnDeInitEnginePlugin()");
     
   // Close our component managers here....
-  MyComponent_ComponentManager::GlobalManager().OneTimeDeInit();
   MyGameManager::GlobalManager().OneTimeDeInit();
   //  [...]
   

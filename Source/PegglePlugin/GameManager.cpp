@@ -45,7 +45,7 @@ void MyGameManager::OnHandleCallback(IVisCallbackDataObject_cl *pData)
       // [...]
       if (m_bPlayingTheGame)
       {
-        Vision::Message.Print(1, 200, 100, "The game is running");
+		//Vision::Message.Print(1, 200, 100, "Let the Game Begin!");
       }
       return;
   }

@@ -6,22 +6,17 @@ function OnAfterSceneLoaded(self)
   --map the triggers
   self.map:MapTrigger("RIGHT", "KEYBOARD", "CT_KB_RIGHT")
   self.map:MapTrigger("LEFT", "KEYBOARD", "CT_KB_LEFT")
-  self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {once = true})
+  self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true})
   
   --set the global variables
-  G.ballInPlay = false
-  G.EndRound = EndTheRound
-  G.HideBall = HideTheBall
-  G.gameScore = 0
-  G.pegsHit = 0
-  G.ballsRemaining = 3
+  ResetLevel()
   G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
 end
 
 function OnExpose(self)
   self.RotationSpeed = 50
   self.impulseScalar = 3
-  self.ballBounce = 1.5
+  self.ballBounce = 1.25
 end
 
 function OnBeforeSceneUnloaded(self)
@@ -30,7 +25,15 @@ function OnBeforeSceneUnloaded(self)
 end
 
 function OnThink(self)
-   if not (G.ballsRemaining > 0) then 
+	--Show the score and balls remaining  
+   Debug:PrintAt(10, 50, "Points: " .. G.gameScore, Vision.V_RGBA_YELLOW)
+   Debug:PrintAt(10, 70, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW)
+   Debug:PrintAt(512, 70, "Goal Score: " .. G.goalScore, Vision.V_RGBA_YELLOW)
+
+   if G.ballsRemaining == 0 then
+	if (self.map:GetTrigger("FIRE01") > 0) then
+		ResetLevel()
+	end
     return
   end
 
@@ -65,11 +68,6 @@ function OnThink(self)
     orientation.z = LimitRotation(self, orientation)
     self:SetOrientation(orientation)
   end
-  
-   --Show the score and balls remaining  
-   Debug:PrintAt(0, 50, "Points: " .. G.gameScore, Vision.V_RGBA_YELLOW)
-   Debug:PrintAt(0, 60, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW)
-   Debug:PrintAt(0, 70, "NumPegsHit: " .. G.pegsHit, Vision.V_RGBA_YELLOW)
 end
 
 function LimitRotation(self, pOrientation)
@@ -114,29 +112,28 @@ function FireTheBall(self)
 end
 
 function EndTheRound()
-  pegParent = Game:GetEntity("PegParent")
+  local pegParent = Game:GetEntity("PegParent")
   local numChildren = pegParent:GetNumChildren()
   for i = 0, pegParent:GetNumChildren() - 1, 1 do
     local peg = pegParent:GetChild(i)
     if peg ~= nil then
       local pegComp = peg:GetComponentOfType("SimplePeg")
 	  if pegComp ~= nil then
-		if pegComp:GetProperty("hitCount") > 0 then
+		if pegComp:GetProperty("m_hitCount") > 0 then
 			peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
 			peg:SetVisible(false)
-			G.pegsHit = G.pegsHit + 1
-			--[[ can't get this part to work, using a workaround instead
-			peg:DetachFromParent()
-			--]]
+			--G.pegsHit = G.pegsHit + 1
 		end
 	  end
     end    
   end
   
+  G.pegsHit = 0
+  
   --if the number of balls left is = 0, then end the game,
-  if G.pegsHit == numChildren - 1 then
+  if G.ballsRemaining == 0 and G.gameScore >= G.goalScore then
 	WinLevel()
-  elseif G.ballsRemaining == 0 and not (G.pegsHit == numChildren) then
+  elseif G.ballsRemaining == 0 and G.gameScore <= G.goalScore then
     LoseLevel()
   end
 end 
@@ -166,8 +163,32 @@ function LoseLevel()
 	Debug:PrintLine("You Lose")
 end
 
-function ResetLevel(self)
-	--make all pegs visible
-	--reactivate the rigid bodies
-	--set hit count back to 0
+function ResetLevel()
+	--make all pegs visible, re-activate rigid bodies and Set Hit Count to 0
+	local pegParent = Game:GetEntity("PegParent")
+	local numChildren = pegParent:GetNumChildren()
+	
+	for i = 0, pegParent:GetNumChildren() - 1, 1 do
+		local peg = pegParent:GetChild(i)
+		if peg ~= nil then
+			peg:GetComponentOfType("vHavokRigidBody"):SetActive(true)
+			peg:SetVisible(true)
+			peg:GetComponentOfType("SimplePeg"):SetProperty("m_hitCount", 0)
+		end
+	end
+    
+	
+	numChildren = pegParent:GetNumChildren()
+	
+	
+	--function variables
+	G.EndRound = EndTheRound
+	G.HideBall = HideTheBall
+	
+	--member vars
+	G.ballInPlay = false
+	G.gameScore = 0
+	G.pegsHit = 0
+	G.ballsRemaining = 5
+	G.goalScore = 1750
 end

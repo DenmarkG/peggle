@@ -11,10 +11,11 @@
 
 
 #include "PegglePluginPCH.h"
-#include "myComponent.h"
 #include "SimplePeg.h"
 
 #include <Vision/Runtime/EnginePlugins/Havok/HavokPhysicsEnginePlugin/vHavokPhysicsModule.hpp>
+
+const int MYCOMPONENT_VERSION_CURRENT = 1;
 
 V_IMPLEMENT_SERIAL( SimplePeg, IVObjectComponent, 0, &g_myComponentModule);
 
@@ -23,24 +24,21 @@ SimplePeg_ComponentManager SimplePeg_ComponentManager::g_GlobalManager;
 SimplePeg::SimplePeg()
 {
 	Vision::Message.reset();
-	//Vision::Message.Add(1,"SimplePeg - Class Constructor");
 
-	//to do initialize variables here
-	hitCount = 0;
-	scoreMultiplier = 1;
-	pointValue = 100;
+	//initialize variables here
+	m_hitCount = 0;
+	m_scoreMultiplier = 1;
+	m_pointValue = 100;
 }
 
 SimplePeg::~SimplePeg()
 {
-
+	//Empty Constructor
 }
 
 void SimplePeg::onStartup( VisTypedEngineObject_cl *pOwner )
 {
 	m_rigidBodyComponent = (vHavokRigidBody *)pOwner->Components().GetComponentOfType("vHavokRigidBody");
-	
-	//m_rigidBodyComponent->SetRestitution()
 }
 
 
@@ -49,7 +47,6 @@ void SimplePeg::onRemove(  VisTypedEngineObject_cl *pOwner )
 	//  do the component Removal code here.......
 	//  [...]
 	Vision::Message.reset();
-	//Vision::Message.Add("SimplePeg - onRemove()");
 }
 
 
@@ -65,20 +62,18 @@ void SimplePeg::SetOwner( VisTypedEngineObject_cl *pOwner )
 	if (pOwner!=NULL)
 	{
 		SimplePeg_ComponentManager::GlobalManager().Instances().AddUnique(this);
-		//Vision::Message.Add("myComponent - Component Instance created");
 		onStartup( pOwner );
 	}
 	else
 	{
 		onRemove( pOwner );
-		//Vision::Message.Add("myComponent - Removed Component Instance from component Manager");
 		SimplePeg_ComponentManager::GlobalManager().Instances().SafeRemove(this);    
 	}
 }
 
 bool SimplePeg::Hit() const
 {
-	return (hitCount > 0);
+	return (m_hitCount > 0);
 }
 
 void SimplePeg::MessageFunction( int iID, INT_PTR iParamA, INT_PTR iParamB )
@@ -87,20 +82,21 @@ void SimplePeg::MessageFunction( int iID, INT_PTR iParamA, INT_PTR iParamB )
 	{
 		vHavokCollisionInfo_t *collisionInfo = (vHavokCollisionInfo_t *)iParamA;
 
-		if (m_rigidBodyComponent)
-		{
-			vHavokColliderInfo_t *info = &collisionInfo->m_Collider[0];
+		//if (m_rigidBodyComponent)
+		//{
+		//	vHavokColliderInfo_t *info = &collisionInfo->m_Collider[0];
 
-			if (info->m_pRigidBody == m_rigidBodyComponent)
-				info = &collisionInfo->m_Collider[1];
+		//	if (info->m_pRigidBody == m_rigidBodyComponent)
+		//		info = &collisionInfo->m_Collider[1];
 
-			hkvVec3 newVelocity = collisionInfo->m_vNormal * -2.0f;
-			info->m_pRigidBody->SetLinearVelocity(newVelocity);
-		}
+		//	hkvVec3 newVelocity = collisionInfo->m_vNormal * -2.0f;
+		//	info->m_pRigidBody->SetLinearVelocity(newVelocity);
+		//}
 
 		if(m_rigidBodyComponent)
 		{
-			++hitCount;
+			//update the hitCount OnCollision
+			++m_hitCount;
 		}
 	}
 }
@@ -115,21 +111,14 @@ void SimplePeg::Serialize( VArchive &ar )
     VASSERT_MSG(iLocalVersion == MYCOMPONENT_VERSION_CURRENT , "Invalid local version.");
 
     //  add your property variables here
-    //  Load Data
-    //ar >> boolDemo;
-    //ar >> floatDemo;
-    //ar >> intDemo;
-    //ar >> colorDemo;    
+	//[...]
   } 
   else
   {
     ar << iLocalVersion;
     
     //  Save Data
-    //ar << boolDemo;
-    //ar << floatDemo;
-    //ar << intDemo; 
-    //ar << colorDemo;   
+	//[...]
   }
 }
 
@@ -142,12 +131,14 @@ void SimplePeg::Serialize( VArchive &ar )
 START_VAR_TABLE(SimplePeg,IVObjectComponent,    "The basic peg component for all pegs in the Peggle mini-game", 
                           VVARIABLELIST_FLAGS_NONE, 
                           "SimplePeg" )
-
-DEFINE_VAR_INT  (SimplePeg, pointValue, "The point value of this peg", "100", 0, 0);
-DEFINE_VAR_INT	(SimplePeg, scoreMultiplier, "The score multiplier when hit", "1", 0, 0);
-DEFINE_VAR_INT	(SimplePeg, hitCount, "Hit Counter", "0", 0, 0);
+//these variables will be viewable in the inspector and in Lua scripts using _:GetProperty("_")
+DEFINE_VAR_INT  (SimplePeg, m_pointValue, "The point value of this peg", "100", 0, 0);
+DEFINE_VAR_INT	(SimplePeg, m_scoreMultiplier, "The score multiplier when hit", "1", 0, 0);
+DEFINE_VAR_INT	(SimplePeg, m_hitCount, "Hit Counter", "0", 0, 0);
 
 END_VAR_TABLE
+
+
 
 /*
  * Havok SDK - Base file, BUILD(#20131218)
