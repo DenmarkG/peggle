@@ -1,0 +1,10 @@
+<root>
+    <Resources Version="1" Count="6" PathType="Project">
+        <Resource Manager="FILE" Filename="Models/MOD_BlueCapsule.MODEL_data\materials.xml" OwnerRes="5" Size="896" />
+        <Resource Manager="EffectLibs" Filename="Shaders\Library01.ShaderLib" Size="107832" />
+        <Resource Manager="Textures" Filename="Textures\MOD_PegMask.tga" CustomInt="1,0" Size="349524" />
+        <Resource Manager="Textures" Filename="Textures\MOD_PegNormalsMap.tga" CustomInt="1,0" Size="349524" />
+        <Resource Manager="Textures" Filename="Textures\MOD_Peg_DIFFUSE.tga" CustomInt="1,64" Size="349524" />
+        <Resource Manager="Static/Dynamic Meshes" Filename="Models/MOD_BlueCapsule.MODEL" CustomInt="1,2" Size="56" />
+    </Resources>
+</root>

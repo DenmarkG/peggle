@@ -74,6 +74,7 @@ protected:
 	int m_pointValue;
 	int m_hitCount;
 	int m_scoreMultiplier;
+	BOOL m_hasHitLimit;
 
 	vHavokRigidBody *m_rigidBodyComponent;
 };

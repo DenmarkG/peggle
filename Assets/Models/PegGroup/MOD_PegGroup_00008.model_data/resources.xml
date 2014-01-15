@@ -1,0 +1,10 @@
+<root>
+    <Resources Version="1" Count="6" PathType="Project">
+        <Resource Manager="FILE" Filename="Models/PegGroup/MOD_PegGroup_00008.model_data\materials.xml" OwnerRes="5" Size="913" />
+        <Resource Manager="EffectLibs" Filename="Shaders\Library01.ShaderLib" Size="71888" />
+        <Resource Manager="Textures" Filename="Textures\BoxPegTopNormalsMap.tga" CustomInt="1,0" Size="349524" />
+        <Resource Manager="Textures" Filename="Textures\BoxTop_ALPHA.tga" CustomInt="1,0" Size="349524" />
+        <Resource Manager="Textures" Filename="Textures\BoxTop_DIFFUSE.tga" CustomInt="1,64" Size="349524" />
+        <Resource Manager="Static/Dynamic Meshes" Filename="Models/PegGroup/MOD_PegGroup_00008.model" CustomInt="1,2" Size="56" />
+    </Resources>
+</root>

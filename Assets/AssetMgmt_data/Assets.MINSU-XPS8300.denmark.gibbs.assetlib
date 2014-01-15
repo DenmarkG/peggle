@@ -65,9 +65,9 @@
                 ]
             },
             "File": {
-                "Hash": 4169631639,
-                "TimeStamp": 1389381615775315100,
-                "LastEditTime": 1389381616861315100
+                "Hash": 2716061907,
+                "TimeStamp": 1389752375790808900,
+                "LastEditTime": 1389752376767906600
             },
             "Transformations": {
                 "TemplateName": "Default"
@@ -81,16 +81,16 @@
                     "Meshes/SM_Envrionment.VMESH_data/materials.xml",
                     "Shaders/BaseShaders.ShaderLib",
                     "Shaders/vMaterial.ShaderLib",
-                    "Textures/OffWhite.tga"
+                    "Textures/SM_Environemnt_DIFFUSE_.tga"
                 ],
                 "Variants": [
 
                 ]
             },
             "File": {
-                "Hash": 715859103,
-                "TimeStamp": 1389378728094466600,
-                "LastEditTime": 1389381616831315100
+                "Hash": 2213729743,
+                "TimeStamp": 1389752375789808800,
+                "LastEditTime": 1389752376788908700
             },
             "Model": {
                 "LODSwitchDistances": [
@@ -205,16 +205,18 @@
                     "Models/MOD_BlueCapsule.MODEL_data/materials.xml",
                     "Shaders/BaseShaders.ShaderLib",
                     "Shaders/vMaterial.ShaderLib",
-                    "Textures/Flat-Blue.tga"
+                    "Textures/MOD_Peg_DIFFUSE.tga",
+                    "Textures/MOD_PegMask.tga",
+                    "Textures/MOD_PegNormalsMap.tga"
                 ],
                 "Variants": [
 
                 ]
             },
             "File": {
-                "Hash": 2275326055,
-                "TimeStamp": 1389382088602547700,
-                "LastEditTime": 1389382089747662200
+                "Hash": 2004489702,
+                "TimeStamp": 1389752328653095600,
+                "LastEditTime": 1389752329711201400
             },
             "Model": {
                 "LODSwitchDistances": [
@@ -237,9 +239,9 @@
                 ]
             },
             "File": {
-                "Hash": 4078537855,
-                "TimeStamp": 1389382088607548200,
-                "LastEditTime": 1389382089739661400
+                "Hash": 3303880473,
+                "TimeStamp": 1389752328653095600,
+                "LastEditTime": 1389752329694199700
             },
             "Transformations": {
                 "TemplateName": "Default"
@@ -301,6 +303,447 @@
                 "TemplateName": "Default"
             }
         },
+        "Models/PegGroup/MOD_PegGroup_00000.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00000.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1769610941,
+                "TimeStamp": 1389739432959198100,
+                "LastEditTime": 1389739433970198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00000.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2728981713,
+                "TimeStamp": 1389739432959198100,
+                "LastEditTime": 1389739433970198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00001.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00001.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 670045412,
+                "TimeStamp": 1389739441083198100,
+                "LastEditTime": 1389739442236198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00001.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4224809141,
+                "TimeStamp": 1389739441083198100,
+                "LastEditTime": 1389739442235198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00002.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00002.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1939990572,
+                "TimeStamp": 1389739465079198100,
+                "LastEditTime": 1389739466201198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00002.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1641312689,
+                "TimeStamp": 1389739465079198100,
+                "LastEditTime": 1389739466201198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00003.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00003.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4118755218,
+                "TimeStamp": 1389739476920198100,
+                "LastEditTime": 1389739478063198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00003.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3114450113,
+                "TimeStamp": 1389739476920198100,
+                "LastEditTime": 1389739478063198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00004.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00004.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 911507224,
+                "TimeStamp": 1389739485970198100,
+                "LastEditTime": 1389739487008198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00004.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 4098856429,
+                "TimeStamp": 1389739485970198100,
+                "LastEditTime": 1389739487008198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00005.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00005.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 943529789,
+                "TimeStamp": 1389739494754198100,
+                "LastEditTime": 1389739495858198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00005.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 539438015,
+                "TimeStamp": 1389739494754198100,
+                "LastEditTime": 1389739495858198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00006.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00006.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2712505869,
+                "TimeStamp": 1389739507685198100,
+                "LastEditTime": 1389739508836198100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00006.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1057399601,
+                "TimeStamp": 1389739507685198100,
+                "LastEditTime": 1389739508836198100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00007.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00007.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2999399511,
+                "TimeStamp": 1389739514214507600,
+                "LastEditTime": 1389739515333619500
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00007.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2130237298,
+                "TimeStamp": 1389739514215507700,
+                "LastEditTime": 1389739515333619500
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00008.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "Models/PegGroup/MOD_PegGroup_00008.model_data/materials.xml",
+                    "Shaders/Library01.ShaderLib",
+                    "Textures/BoxPegTopNormalsMap.tga",
+                    "Textures/BoxTop_ALPHA.tga",
+                    "Textures/BoxTop_DIFFUSE.tga"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1466074696,
+                "TimeStamp": 1389739520159102000,
+                "LastEditTime": 1389739521310217100
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Models/PegGroup/MOD_PegGroup_00008.vcolmesh": {
+            "AssetType": "CollisionMesh",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 696191670,
+                "TimeStamp": 1389739520159102000,
+                "LastEditTime": 1389739521310217100
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
         "Prefabs/GameBall.prefab": {
             "AssetType": "Prefab",
             "Common": {
@@ -336,6 +779,141 @@
                 "Hash": 2692216821,
                 "TimeStamp": 1389059514657681100,
                 "LastEditTime": 1389118610377749900
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Scenes/Level_01_P01.dds": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2254961746,
+                "TimeStamp": 1389752531071335400,
+                "LastEditTime": 1389752531510379300
+            },
+            "Texture": {
+                "FileFormat": "DDS",
+                "Width": 512,
+                "Height": 512,
+                "HasAlpha": false,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Scenes/Level_01_P02.dds": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2080395281,
+                "TimeStamp": 1389752531488377100,
+                "LastEditTime": 1389752531552383500
+            },
+            "Texture": {
+                "FileFormat": "DDS",
+                "Width": 512,
+                "Height": 512,
+                "HasAlpha": false,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/BoxPegTopNormalsMap.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2077426965,
+                "TimeStamp": 1389725993885175100,
+                "LastEditTime": 1389731181118884500
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/BoxTop_ALPHA.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1320501212,
+                "TimeStamp": 1389728270702689800,
+                "LastEditTime": 1389731181131881900
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/BoxTop_DIFFUSE.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 220202397,
+                "TimeStamp": 1389728097512689800,
+                "LastEditTime": 1389731180814945300
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
             },
             "Transformations": {
                 "TemplateName": "Default"
@@ -449,6 +1027,87 @@
                 "TemplateName": "Default"
             }
         },
+        "Textures/MOD_Peg_DIFFUSE.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1033623904,
+                "TimeStamp": 1389749031924887900,
+                "LastEditTime": 1389752329697200000
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/MOD_PegMask.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 2683659082,
+                "TimeStamp": 1389749815113887900,
+                "LastEditTime": 1389752329765206800
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/MOD_PegNormalsMap.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1149150507,
+                "TimeStamp": 1389747791021340200,
+                "LastEditTime": 1389752329757206000
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
         "Textures/OffWhite.tga": {
             "AssetType": "Texture",
             "Common": {
@@ -464,6 +1123,33 @@
                 "Hash": 3524460337,
                 "TimeStamp": 1389053776122558000,
                 "LastEditTime": 1389381616775315100
+            },
+            "Texture": {
+                "FileFormat": "TGA",
+                "Width": 256,
+                "Height": 256,
+                "HasAlpha": true,
+                "sRGB": false
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
+        "Textures/SM_Environemnt_DIFFUSE_.tga": {
+            "AssetType": "Texture",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 3770099265,
+                "TimeStamp": 1389746645493789500,
+                "LastEditTime": 1389752376769906800
             },
             "Texture": {
                 "FileFormat": "TGA",
@@ -512,6 +1198,56 @@
             "Hash": 0,
             "TimeStamp": 1389052934541408300,
             "LastEditTime": 1389052935541508300
+        },
+        "Models/PegGroup/MOD_PegGroup_00000.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757352198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00001.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738464867198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00002.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757373198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00003.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757395198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00004.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757420198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00005.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757446198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00006.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757486198100,
+            "LastEditTime": 1389729967208483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00007.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757511198100,
+            "LastEditTime": 1389729967207483200
+        },
+        "Models/PegGroup/MOD_PegGroup_00008.model_data/materials.xml": {
+            "Hash": 0,
+            "TimeStamp": 1389738757532198100,
+            "LastEditTime": 1389729967207483200
+        },
+        "Shaders/Library01.ShaderLib": {
+            "Hash": 0,
+            "TimeStamp": 1389738381324198100,
+            "LastEditTime": 1389730465976483200
         }
     }
 }

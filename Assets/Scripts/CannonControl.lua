@@ -11,12 +11,19 @@ function OnAfterSceneLoaded(self)
   --set the global variables
   ResetLevel()
   G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
+  
+	--function variables
+	G.EndRound = EndTheRound
+	G.HideBall = HideTheBall
+	G.HidePeg = HideThePeg
+	G.ShowPeg = ShowThePeg
+	
 end
 
 function OnExpose(self)
   self.RotationSpeed = 50
   self.impulseScalar = 3
-  self.ballBounce = 1.25
+  self.ballBounce = .75
 end
 
 function OnBeforeSceneUnloaded(self)
@@ -30,20 +37,20 @@ function OnThink(self)
    Debug:PrintAt(10, 70, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW)
    Debug:PrintAt(512, 70, "Goal Score: " .. G.goalScore, Vision.V_RGBA_YELLOW)
 
-   if G.ballsRemaining == 0 then
-	if (self.map:GetTrigger("FIRE01") > 0) then
-		ResetLevel()
+	if G.ballsRemaining == 0 then
+		if (self.map:GetTrigger("FIRE01") > 0) then
+			ResetLevel()
+		end
+		return
 	end
-    return
-  end
 
 	--create the variables for input
-  local right = self.map:GetTrigger("RIGHT")
-  local left = self.map:GetTrigger("LEFT")
-  local fire = self.map:GetTrigger("FIRE01")
+	local right = self.map:GetTrigger("RIGHT")
+	local left = self.map:GetTrigger("LEFT")
+	local fire = self.map:GetTrigger("FIRE01")
   
-  --check for input
-  if (right~=0) or (left~=0) or (fire>0) then
+	--check for input
+	if (right~=0) or (left~=0) or (fire>0) then
     
     --fire the ball if the spacebar is pressed
     if (fire>0) and ( not G.ballInPlay) then
@@ -119,10 +126,8 @@ function EndTheRound()
     if peg ~= nil then
       local pegComp = peg:GetComponentOfType("SimplePeg")
 	  if pegComp ~= nil then
-		if pegComp:GetProperty("m_hitCount") > 0 then
-			peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
-			peg:SetVisible(false)
-			--G.pegsHit = G.pegsHit + 1
+		if (not pegComp:GetProperty("m_hasHitLimit")) and (pegComp:GetProperty("m_hitCount") > 0) then
+			HideThePeg(peg)
 		end
 	  end
     end    
@@ -144,7 +149,7 @@ function HideTheBall(ball)
   ballRB:SetActive(false)
     
    --make the ball invisible
-  --ball:SetVisible(false)
+  ball:SetVisible(false)
     
   ball:SetPosition(G.ballHeaven)
   
@@ -163,6 +168,17 @@ function LoseLevel()
 	Debug:PrintLine("You Lose")
 end
 
+function HideThePeg(peg)
+	peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
+	peg:SetVisible(false)
+end
+
+function ShowThePeg(peg)
+	peg:GetComponentOfType("vHavokRigidBody"):SetActive(true)
+	peg:SetVisible(true)
+	peg:GetComponentOfType("SimplePeg"):SetProperty("m_hitCount", 0)
+end
+
 function ResetLevel()
 	--make all pegs visible, re-activate rigid bodies and Set Hit Count to 0
 	local pegParent = Game:GetEntity("PegParent")
@@ -171,19 +187,12 @@ function ResetLevel()
 	for i = 0, pegParent:GetNumChildren() - 1, 1 do
 		local peg = pegParent:GetChild(i)
 		if peg ~= nil then
-			peg:GetComponentOfType("vHavokRigidBody"):SetActive(true)
-			peg:SetVisible(true)
-			peg:GetComponentOfType("SimplePeg"):SetProperty("m_hitCount", 0)
+			ShowThePeg(peg)
 		end
 	end
     
 	
 	numChildren = pegParent:GetNumChildren()
-	
-	
-	--function variables
-	G.EndRound = EndTheRound
-	G.HideBall = HideTheBall
 	
 	--member vars
 	G.ballInPlay = false

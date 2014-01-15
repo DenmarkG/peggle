@@ -29,6 +29,7 @@ SimplePeg::SimplePeg()
 	m_hitCount = 0;
 	m_scoreMultiplier = 1;
 	m_pointValue = 100;
+	m_hasHitLimit = false;
 }
 
 SimplePeg::~SimplePeg()
@@ -82,6 +83,7 @@ void SimplePeg::MessageFunction( int iID, INT_PTR iParamA, INT_PTR iParamB )
 	{
 		vHavokCollisionInfo_t *collisionInfo = (vHavokCollisionInfo_t *)iParamA;
 
+		//example of how to interact with the collider components
 		//if (m_rigidBodyComponent)
 		//{
 		//	vHavokColliderInfo_t *info = &collisionInfo->m_Collider[0];
@@ -135,6 +137,7 @@ START_VAR_TABLE(SimplePeg,IVObjectComponent,    "The basic peg component for all
 DEFINE_VAR_INT  (SimplePeg, m_pointValue, "The point value of this peg", "100", 0, 0);
 DEFINE_VAR_INT	(SimplePeg, m_scoreMultiplier, "The score multiplier when hit", "1", 0, 0);
 DEFINE_VAR_INT	(SimplePeg, m_hitCount, "Hit Counter", "0", 0, 0);
+DEFINE_VAR_BOOL (SimplePeg, m_hasHitLimit, "If true, the peg will disappear during the round after 3 hits", "FALSE", 0, NULL);
 
 END_VAR_TABLE
 

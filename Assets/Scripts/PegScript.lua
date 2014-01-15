@@ -1,12 +1,20 @@
 -- new script file
 
+function OnExpose(self)
+	self.hasHitLimit = false;
+end
+
 function OnAfterSceneLoaded(self)
 	--get the vHavokRigidBody attached to this component
-  self.rigidBody = self:GetComponentOfType("vHavokRigidBody")
-  Vision.Assert(self.rigidBody ~= nil, "Rigid Body is Missing")
+	self.rigidBody = self:GetComponentOfType("vHavokRigidBody")
+	Vision.Assert(self.rigidBody ~= nil, "Rigid Body is Missing")
   
-  self.pegComp = self:GetComponentOfType("SimplePeg")
-  Vision.Assert(self.pegComp ~= nil, "Peg Component is Missing")
+	self.pegComp = self:GetComponentOfType("SimplePeg")
+	Vision.Assert(self.pegComp ~= nil, "Peg Component is Missing")
+	self.hasLimit = self.pegComp:GetProperty("m_hasHitLimit")
+	if(self.hasLimit) then
+		self.maxHitCount = 3
+	end
 end
 
 -- info fields: HitPoint, HitNormal, Force, RelativeVelocity,
@@ -26,6 +34,10 @@ function OnCollision(self, info)
 	if otherObj:GetKey() == "GameBall" then
 		--log update the global var to keep track of how many total hits this round
 		G.pegsHit = G.pegsHit + 1
+		
+		if(self.hasLimit) and (self.pegComp:GetProperty("m_hitCount") >= self.maxHitCount) then
+			G.HidePeg(self)
+		end
 		
 		
 		--set the score multiplier

@@ -1,0 +1,1 @@
+vLux.exe "" -project "C:\Projects\Peggle\Assets" -tempfolder "C:\Projects\Peggle\Assets\Scenes\Level_01.scene.Layers" -out "Scenes\Level_01" -quiet -minimized -config "C:\Projects\Peggle\Assets\Scenes\Level_01.scene.Layers\lighting.cfg"

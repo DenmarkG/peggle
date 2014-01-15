@@ -10,10 +10,37 @@ models/mod_bluecapsule.model	models/mod_bluecapsule.model	LODSwitchDistances=
 models/mod_bluecapsule.vcolmesh	models/mod_bluecapsule.vcolmesh	
 models/mod_cannon.model	models/mod_cannon.model	LODSwitchDistances=
 models/mod_gameball.model	models/mod_gameball.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00000.model	models/peggroup/mod_peggroup_00000.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00000.vcolmesh	models/peggroup/mod_peggroup_00000.vcolmesh	
+models/peggroup/mod_peggroup_00001.model	models/peggroup/mod_peggroup_00001.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00001.vcolmesh	models/peggroup/mod_peggroup_00001.vcolmesh	
+models/peggroup/mod_peggroup_00002.model	models/peggroup/mod_peggroup_00002.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00002.vcolmesh	models/peggroup/mod_peggroup_00002.vcolmesh	
+models/peggroup/mod_peggroup_00003.model	models/peggroup/mod_peggroup_00003.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00003.vcolmesh	models/peggroup/mod_peggroup_00003.vcolmesh	
+models/peggroup/mod_peggroup_00004.model	models/peggroup/mod_peggroup_00004.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00004.vcolmesh	models/peggroup/mod_peggroup_00004.vcolmesh	
+models/peggroup/mod_peggroup_00005.model	models/peggroup/mod_peggroup_00005.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00005.vcolmesh	models/peggroup/mod_peggroup_00005.vcolmesh	
+models/peggroup/mod_peggroup_00006.model	models/peggroup/mod_peggroup_00006.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00006.vcolmesh	models/peggroup/mod_peggroup_00006.vcolmesh	
+models/peggroup/mod_peggroup_00007.model	models/peggroup/mod_peggroup_00007.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00007.vcolmesh	models/peggroup/mod_peggroup_00007.vcolmesh	
+models/peggroup/mod_peggroup_00008.model	models/peggroup/mod_peggroup_00008.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00008.vcolmesh	models/peggroup/mod_peggroup_00008.vcolmesh	
 prefabs/gameball.prefab	prefabs/gameball.prefab	
 prefabs/gameballprefab.prefab	prefabs/gameballprefab.prefab	
+scenes/level_01_p01.dds	scenes/level_01_p01.dds	sRGB=false
+scenes/level_01_p02.dds	scenes/level_01_p02.dds	sRGB=false
+textures/boxpegtopnormalsmap.tga	textures/boxpegtopnormalsmap.tga	sRGB=false
+textures/boxtop_alpha.tga	textures/boxtop_alpha.tga	sRGB=false
+textures/boxtop_diffuse.tga	textures/boxtop_diffuse.tga	sRGB=false
 textures/cannon_diffuse.tga	textures/cannon_diffuse.tga	sRGB=false
 textures/cannonbase_diffuse.tga	textures/cannonbase_diffuse.tga	sRGB=false
 textures/flat-blue.tga	textures/flat-blue.tga	sRGB=false
 textures/gray_128.tga	textures/gray_128.tga	sRGB=false
+textures/mod_peg_diffuse.tga	textures/mod_peg_diffuse.tga	sRGB=false
+textures/mod_pegmask.tga	textures/mod_pegmask.tga	sRGB=false
+textures/mod_pegnormalsmap.tga	textures/mod_pegnormalsmap.tga	sRGB=false
 textures/offwhite.tga	textures/offwhite.tga	sRGB=false
+textures/sm_environemnt_diffuse_.tga	textures/sm_environemnt_diffuse_.tga	sRGB=false
