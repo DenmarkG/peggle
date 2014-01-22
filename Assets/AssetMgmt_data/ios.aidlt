@@ -1,0 +1,48 @@
+fonts/finecollege_32_00.dds	AssetMgmt_data/transformed/finecollege_32_0045mhfl8clgdtc.pvr	sRGB=false
+meshes/sm_cannonbase.vcolmesh	Meshes/SM_CannonBase.vcolmesh	
+meshes/sm_cannonbase.vmesh	Meshes/SM_CannonBase.VMESH	LODSwitchDistances=
+meshes/sm_envrionment.vcolmesh	Meshes/SM_Envrionment.vcolmesh	
+meshes/sm_envrionment.vmesh	Meshes/SM_Envrionment.VMESH	LODSwitchDistances=
+meshes/sm_frontwall.vcolmesh	Meshes/SM_FrontWall.vcolmesh	
+meshes/sm_frontwall.vmesh	Meshes/SM_FrontWall.VMESH	LODSwitchDistances=
+models/mod_ballbucket.model	Models/MOD_BallBucket.model	LODSwitchDistances=
+models/mod_ballbucket.vcolmesh	Models/MOD_BallBucket.vcolmesh	
+models/mod_bluecapsule.model	Models/MOD_BlueCapsule.MODEL	LODSwitchDistances=
+models/mod_bluecapsule.vcolmesh	Models/MOD_BlueCapsule.vcolmesh	
+models/mod_cannon.model	Models/MOD_Cannon.MODEL	LODSwitchDistances=
+models/mod_gameball.model	Models/MOD_GameBall.MODEL	LODSwitchDistances=
+models/peggroup/mod_peggroup_00000.model	Models/PegGroup/MOD_PegGroup_00000.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00000.vcolmesh	Models/PegGroup/MOD_PegGroup_00000.vcolmesh	
+models/peggroup/mod_peggroup_00001.model	Models/PegGroup/MOD_PegGroup_00001.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00001.vcolmesh	Models/PegGroup/MOD_PegGroup_00001.vcolmesh	
+models/peggroup/mod_peggroup_00002.model	Models/PegGroup/MOD_PegGroup_00002.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00002.vcolmesh	Models/PegGroup/MOD_PegGroup_00002.vcolmesh	
+models/peggroup/mod_peggroup_00003.model	Models/PegGroup/MOD_PegGroup_00003.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00003.vcolmesh	Models/PegGroup/MOD_PegGroup_00003.vcolmesh	
+models/peggroup/mod_peggroup_00004.model	Models/PegGroup/MOD_PegGroup_00004.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00004.vcolmesh	Models/PegGroup/MOD_PegGroup_00004.vcolmesh	
+models/peggroup/mod_peggroup_00005.model	Models/PegGroup/MOD_PegGroup_00005.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00005.vcolmesh	Models/PegGroup/MOD_PegGroup_00005.vcolmesh	
+models/peggroup/mod_peggroup_00006.model	Models/PegGroup/MOD_PegGroup_00006.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00006.vcolmesh	Models/PegGroup/MOD_PegGroup_00006.vcolmesh	
+models/peggroup/mod_peggroup_00007.model	Models/PegGroup/MOD_PegGroup_00007.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00007.vcolmesh	Models/PegGroup/MOD_PegGroup_00007.vcolmesh	
+models/peggroup/mod_peggroup_00008.model	Models/PegGroup/MOD_PegGroup_00008.model	LODSwitchDistances=
+models/peggroup/mod_peggroup_00008.vcolmesh	Models/PegGroup/MOD_PegGroup_00008.vcolmesh	
+particles/haloring_01.dds	AssetMgmt_data/transformed/haloring_01hc8w8rxclgdtc.pvr	sRGB=false
+prefabs/gameball.prefab	Prefabs/GameBall.prefab	
+prefabs/gameballprefab.prefab	Prefabs/GameBallPrefab.prefab	
+scenes/level_01_p01.dds	AssetMgmt_data/transformed/level_01_p018dt#xb8clgdtc.pvr	sRGB=false
+scenes/level_01_p02.dds	AssetMgmt_data/transformed/level_01_p027s02j24clgdtc.pvr	sRGB=false
+textures/boxpegtopnormalsmap.tga	AssetMgmt_data/transformed/boxpegtopnormalsmap7rns52nclgdtc.pvr	sRGB=false
+textures/boxtop_alpha.tga	AssetMgmt_data/transformed/boxtop_alpha4yf9#wjclgdtc.pvr	sRGB=false
+textures/boxtop_diffuse.tga	AssetMgmt_data/transformed/boxtop_diffuse0v805mnclgdtc.pvr	sRGB=false
+textures/cannon_diffuse.tga	AssetMgmt_data/transformed/cannon_diffuse9#2#0n8clgdtc.pvr	sRGB=false
+textures/cannonbase_diffuse.tga	AssetMgmt_data/transformed/cannonbase_diffuse2f5lw#sclgdtc.pvr	sRGB=false
+textures/flat-blue.tga	AssetMgmt_data/transformed/flat-bluebcd5y2xclgdtc.pvr	sRGB=false
+textures/gray_128.tga	AssetMgmt_data/transformed/gray_1283mykg34clgdtc.pvr	sRGB=false
+textures/mod_peg_diffuse.tga	AssetMgmt_data/transformed/mod_peg_diffuse3w6ztd0clgdtc.pvr	sRGB=false
+textures/mod_pegmask.tga	AssetMgmt_data/transformed/mod_pegmask9#yc398clgdtc.pvr	sRGB=false
+textures/mod_pegnormalsmap.tga	AssetMgmt_data/transformed/mod_pegnormalsmap48#p55dclgdtc.pvr	sRGB=false
+textures/offwhite.tga	AssetMgmt_data/transformed/offwhitef44r#64clgdtc.pvr	sRGB=false
+textures/sm_environemnt_diffuse_.tga	AssetMgmt_data/transformed/sm_environemnt_diffuse_g1ft684clgdtc.pvr	sRGB=false
