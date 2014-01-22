@@ -16,13 +16,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PeggleApplication\PeggleApplicationPCH.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="PeggleGameManager.h" />
     <ClInclude Include="PegglePluginModule.h" />
     <ClInclude Include="PegglePluginPCH.h" />
     <ClInclude Include="SimplePeg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="PeggleGameManager.cpp" />
     <ClCompile Include="PegglePluginPCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug DLL|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Dev DLL|Win32'">Create</PrecompiledHeader>

@@ -1,23 +1,11 @@
-/*
- *
- * Confidential Information of Telekinesys Research Limited (t/a Havok). Not for disclosure or distribution without Havok's
- * prior written consent. This software contains code, techniques and know-how which is confidential and proprietary to Havok.
- * Product and Trade Secret source code contains trade secrets of Havok. Havok Software (C) Copyright 1999-2013 Telekinesys Research Limited t/a Havok. All Rights Reserved. Use of this software is subject to the terms of an end user license agreement.
- *
- */
-
-//  Basic Component Template
-//  
-
-
 #include "PegglePluginPCH.h"
 #include "SimplePeg.h"
 
 #include <Vision/Runtime/EnginePlugins/Havok/HavokPhysicsEnginePlugin/vHavokPhysicsModule.hpp>
 
-const int MYCOMPONENT_VERSION_CURRENT = 1;
+const int SIMPLE_PEG_COMPONENT_VERSION_CURRENT = 1;
 
-V_IMPLEMENT_SERIAL( SimplePeg, IVObjectComponent, 0, &g_myComponentModule);
+V_IMPLEMENT_SERIAL( SimplePeg, IVObjectComponent, 0, &g_peggleModule);
 
 SimplePeg_ComponentManager SimplePeg_ComponentManager::g_GlobalManager;
 
@@ -25,7 +13,7 @@ SimplePeg::SimplePeg()
 {
 	Vision::Message.reset();
 
-	//initialize variables here
+	// Initialize variables here
 	m_hitCount = 0;
 	m_scoreMultiplier = 1;
 	m_pointValue = 100;
@@ -34,14 +22,13 @@ SimplePeg::SimplePeg()
 
 SimplePeg::~SimplePeg()
 {
-	//Empty Constructor
+	//
 }
 
 void SimplePeg::onStartup( VisTypedEngineObject_cl *pOwner )
 {
 	m_rigidBodyComponent = (vHavokRigidBody *)pOwner->Components().GetComponentOfType("vHavokRigidBody");
 }
-
 
 void SimplePeg::onRemove(  VisTypedEngineObject_cl *pOwner )
 {
@@ -84,19 +71,20 @@ void SimplePeg::MessageFunction( int iID, INT_PTR iParamA, INT_PTR iParamB )
 		vHavokCollisionInfo_t *collisionInfo = (vHavokCollisionInfo_t *)iParamA;
 
 		//example of how to interact with the collider components
-		//if (m_rigidBodyComponent)
+		//if (m_rigidbodycomponent)
 		//{
-		//	vHavokColliderInfo_t *info = &collisionInfo->m_Collider[0];
+		//	vhavokcolliderinfo_t *info = &collisioninfo->m_collider[0];
 
-		//	if (info->m_pRigidBody == m_rigidBodyComponent)
-		//		info = &collisionInfo->m_Collider[1];
+		//	if (info->m_prigidbody == m_rigidbodycomponent)
+		//		info = &collisioninfo->m_collider[1];
 
-		//	hkvVec3 newVelocity = collisionInfo->m_vNormal * -2.0f;
-		//	info->m_pRigidBody->SetLinearVelocity(newVelocity);
+		//	//hkvvec3 newvelocity = collisioninfo->m_vnormal * -2.0f;
+		//	//info->m_prigidbody->setlinearvelocity(newvelocity);
 		//}
 
 		if(m_rigidBodyComponent)
 		{
+			hkvLog::Info("HitCount Increased!");
 			//update the hitCount OnCollision
 			++m_hitCount;
 		}
@@ -105,31 +93,29 @@ void SimplePeg::MessageFunction( int iID, INT_PTR iParamA, INT_PTR iParamB )
 
 void SimplePeg::Serialize( VArchive &ar )
 {
-  char iLocalVersion = MYCOMPONENT_VERSION_CURRENT ;
-  IVObjectComponent::Serialize(ar);
-  if (ar.IsLoading())
-  {
-    ar >> iLocalVersion;
-    VASSERT_MSG(iLocalVersion == MYCOMPONENT_VERSION_CURRENT , "Invalid local version.");
+	char iLocalVersion = SIMPLE_PEG_COMPONENT_VERSION_CURRENT ;
+	IVObjectComponent::Serialize(ar);
+	if (ar.IsLoading())
+	{
+		ar >> iLocalVersion;
+		VASSERT_MSG(iLocalVersion == SIMPLE_PEG_COMPONENT_VERSION_CURRENT , "Invalid local version.");
 
-    //  add your property variables here
-	//[...]
-  } 
-  else
-  {
-    ar << iLocalVersion;
-    
-    //  Save Data
-	//[...]
-  }
+		ar >> m_pointValue;
+		ar >> m_scoreMultiplier;
+		ar >> m_hitCount;
+		ar >> m_hasHitLimit;
+	} 
+	else
+	{
+		ar << iLocalVersion;
+
+		ar << m_pointValue;
+		ar << m_scoreMultiplier;
+		ar << m_hitCount;
+		ar << m_hasHitLimit;
+	}
 }
 
-
-//============================================================================================================
-//  Variable Table - Property variables can be exposed by the programmer 
-//  and edited per instance by the artist  
-//============================================================================================================
-//
 START_VAR_TABLE(SimplePeg,IVObjectComponent,    "The basic peg component for all pegs in the Peggle mini-game", 
                           VVARIABLELIST_FLAGS_NONE, 
                           "SimplePeg" )
@@ -140,20 +126,3 @@ DEFINE_VAR_INT	(SimplePeg, m_hitCount, "Hit Counter", "0", 0, 0);
 DEFINE_VAR_BOOL (SimplePeg, m_hasHitLimit, "If true, the peg will disappear during the round after 3 hits", "FALSE", 0, NULL);
 
 END_VAR_TABLE
-
-
-
-/*
- * Havok SDK - Base file, BUILD(#20131218)
- * 
- * Confidential Information of Havok.  (C) Copyright 1999-2013
- * Telekinesys Research Limited t/a Havok. All Rights Reserved. The Havok
- * Logo, and the Havok buzzsaw logo are trademarks of Havok.  Title, ownership
- * rights, and intellectual property rights in the Havok software remain in
- * Havok and/or its suppliers.
- * 
- * Use of this software for evaluation purposes is subject to and indicates
- * acceptance of the End User licence Agreement for this product. A copy of
- * the license is included with this software and is also available from salesteam@havok.com.
- * 
- */

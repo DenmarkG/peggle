@@ -1,8 +1,8 @@
 -- new script file
 function OnAfterSceneLoaded(self)
-  self.left = Vision.hkvVec3(0,-1,0)
-  self.right = Vision.hkvVec3(0,1,0)
-  self.direction = self.left
+	self.left = Vision.hkvVec3(0,-1,0)
+	self.right = Vision.hkvVec3(0,1,0)
+	self.direction = self.left
 end
 
 function OnExpose(self)
@@ -13,14 +13,15 @@ function OnExpose(self)
 end
 
 function OnThink(self)
-  --local step = self.moveSpeed * Timer:GetTimeDiff()
-	if self:GetPosition().y < self.minPosition then
-    self.direction = self.right
-   elseif self:GetPosition().y > self.maxPosition then
-    self.direction = self.left
-   end
-   
-   self:IncPosition(self.direction * self.moveSpeed)
+	--local step = self.moveSpeed * Timer:GetTimeDiff()
+	if G.gameState == G.playing then
+		if self:GetPosition().y < self.minPosition then
+			self.direction = self.right
+		elseif self:GetPosition().y > self.maxPosition then
+			self.direction = self.left
+		end
+		self:IncPosition(self.direction * self.moveSpeed)
+	end
 end
 
 function OnObjectEnter(self, object)
@@ -30,5 +31,3 @@ function OnObjectEnter(self, object)
 		G.gameScore = G.gameScore + self.bonusPoints
 	end
 end
-
-

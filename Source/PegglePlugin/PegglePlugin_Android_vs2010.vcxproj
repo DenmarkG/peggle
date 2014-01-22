@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|hkAndroid">
@@ -119,18 +119,15 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="PeggleGameManager.h" />
     <ClInclude Include="PegglePluginModule.h" />
     <ClInclude Include="PegglePluginPCH.h" />
-    <ClInclude Include="myComponent.h" />
-    <ClInclude Include="TemplateAction.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="PeggleGameManager.cpp" />
     <ClCompile Include="PegglePluginPCH.cpp" />
-    <ClCompile Include="myComponent.cpp" />
     <ClCompile Include="PluginMain.cpp" />
-    <ClCompile Include="TemplateAction.cpp" />
+    <ClCompile Include="SimplePeg.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

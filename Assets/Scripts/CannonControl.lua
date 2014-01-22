@@ -1,80 +1,105 @@
 -- new script file
-function OnAfterSceneLoaded(self)
-	--create the map
-  self.map = Input:CreateMap("PlayerInputMap")
-  
-  --map the triggers
-  self.map:MapTrigger("RIGHT", "KEYBOARD", "CT_KB_RIGHT")
-  self.map:MapTrigger("LEFT", "KEYBOARD", "CT_KB_LEFT")
-  self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true})
-  
-  --set the global variables
-  ResetLevel()
-  G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
-  
-	--function variables
-	G.EndRound = EndTheRound
-	G.HideBall = HideTheBall
-	G.HidePeg = HideThePeg
-	G.ShowPeg = ShowThePeg
-	
-end
+function OnAfterSceneLoaded(self)  
+	if self == nil then
+		Debug:Enable(true)
 
-function OnExpose(self)
-  self.RotationSpeed = 50
-  self.impulseScalar = 3
-  self.ballBounce = .75
+		--get the screen size
+		G.width, G.height = Screen:GetViewportSize()
+	  
+		--set the font path
+		G.fontPath = "Fonts/FineCollege_32.fnt"
+	  
+		--global function variables
+		G.EndRound = EndTheRound
+		G.HideBall = HideTheBall
+		G.HidePeg = HideThePeg
+		G.ShowPeg = ShowThePeg
+		G.ResetBucket = ResetTheBucket
+		
+		--set some values for the gamestate
+		G.playing = "PLAYING"
+		G.lose = "LOSE"
+		G.win = "WIN"
+		G.gameState = G.playing
+		
+		G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
+		G.bucket = Game:GetEntity("BallBucket")
+		G.bucketStartPos = bucket:GetPosition()
+	else
+		--create the map
+		self.map = Input:CreateMap("PlayerInputMap")
+	  
+		--map the triggers
+		self.map:MapTrigger("RIGHT", "KEYBOARD", "CT_KB_RIGHT")
+		self.map:MapTrigger("LEFT", "KEYBOARD", "CT_KB_LEFT")
+		self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true})
+		
+		--get and store the inital position
+		self.startRot = self:GetOrientation()
+		
+		ResetLevel(self)
+	end
 end
 
 function OnBeforeSceneUnloaded(self)
-	--destroy the map
-  Input:DestroyMap(self.map);
+	if self ~= nil then
+		--destroy the map
+		Input:DestroyMap(self.map)
+		self.map = nil
+	end
+end
+
+function OnExpose(self)
+	self.RotationSpeed = 50
+	self.impulseScalar = 3
+	self.ballBounce = .75
+	self.numLives = 3
 end
 
 function OnThink(self)
-	--Show the score and balls remaining  
-   Debug:PrintAt(10, 50, "Points: " .. G.gameScore, Vision.V_RGBA_YELLOW)
-   Debug:PrintAt(10, 70, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW)
-   Debug:PrintAt(512, 70, "Goal Score: " .. G.goalScore, Vision.V_RGBA_YELLOW)
-
-	if G.ballsRemaining == 0 then
-		if (self.map:GetTrigger("FIRE01") > 0) then
-			ResetLevel()
+	--Show the 'UI'
+	DisplayGameStats(self)
+	
+	
+	if (G.ballsRemaining > 0) and (G.gameState == G.playing) then
+		--create the variables for input
+		local right = self.map:GetTrigger("RIGHT")
+		local left = self.map:GetTrigger("LEFT")
+		local fire = self.map:GetTrigger("FIRE01")
+	  
+		--check for input
+		if (right~=0) or (left~=0) or (fire>0) then
+			--fire the ball if the spacebar is pressed
+			if (fire>0) and ( not G.ballInPlay) then
+			  FireTheBall(self)
+			end
+			
+			--create a local orientation variable to move cannon at the end of the frame
+			local orientation = self:GetOrientation()
+			
+			--set the speed to move the cannon
+			local step = self.RotationSpeed * Timer:GetTimeDiff()
+			
+			if(right>0) then
+			  --move right
+			  orientation.z = orientation.z + step
+			elseif (left > 0) then
+			  --move left
+			  orientation.z = orientation.z - step
+			end
+			
+			--set the new orientation
+			orientation.z = LimitRotation(self, orientation)
+			self:SetOrientation(orientation)
 		end
-		return
+	elseif (G.ballsRemaining == 0) and (G.gameState ~= G.playing)then
+		DisplayStatusText(self)
+		if(self.map:GetTrigger("FIRE01") > 0) then
+			ResetLevel(self)
+			G.gameState = G.playing
+		end
 	end
 
-	--create the variables for input
-	local right = self.map:GetTrigger("RIGHT")
-	local left = self.map:GetTrigger("LEFT")
-	local fire = self.map:GetTrigger("FIRE01")
-  
-	--check for input
-	if (right~=0) or (left~=0) or (fire>0) then
-    
-    --fire the ball if the spacebar is pressed
-    if (fire>0) and ( not G.ballInPlay) then
-      FireTheBall(self)
-    end
-    
-    --create a local orientation variable to move cannon at the end of the frame
-    local orientation = self:GetOrientation()
-    
-    --set the speed to move the cannon
-    local step = self.RotationSpeed * Timer:GetTimeDiff()
-    
-    if(right>0) then
-      --move right
-      orientation.z = orientation.z + step
-    elseif (left > 0) then
-      --move left
-      orientation.z = orientation.z - step
-    end
-    
-    --set the new orientation
-    orientation.z = LimitRotation(self, orientation)
-    self:SetOrientation(orientation)
-  end
 end
 
 function LimitRotation(self, pOrientation)
@@ -119,28 +144,35 @@ function FireTheBall(self)
 end
 
 function EndTheRound()
-  local pegParent = Game:GetEntity("PegParent")
-  local numChildren = pegParent:GetNumChildren()
-  for i = 0, pegParent:GetNumChildren() - 1, 1 do
-    local peg = pegParent:GetChild(i)
-    if peg ~= nil then
-      local pegComp = peg:GetComponentOfType("SimplePeg")
-	  if pegComp ~= nil then
-		if (not pegComp:GetProperty("m_hasHitLimit")) and (pegComp:GetProperty("m_hitCount") > 0) then
-			HideThePeg(peg)
-		end
-	  end
-    end    
-  end
-  
+	local pegParent = Game:GetEntity("PegParent")
+	local numChildren = pegParent:GetNumChildren()
+	for i = 0, pegParent:GetNumChildren() - 1, 1 do
+		Debug:Log("Checking peg!")
+		local peg = pegParent:GetChild(i)
+		if peg ~= nil then
+			Debug:Log("Checking peg 2!")
+			local pegComp = peg:GetComponentOfType("SimplePeg")
+			if pegComp ~= nil then
+				local hasHitLimit = pegComp:GetProperty("m_hasHitLimit")
+				local hitCount = pegComp:GetProperty("m_hitCount")
+				if (not hasHitLimit) and (hitCount > 0) then
+					Debug:PrintLine("Found peg! " .. hitCount)
+					HideThePeg(peg)
+				end
+			end
+		end    
+	end
+
   G.pegsHit = 0
   
   --if the number of balls left is = 0, then end the game,
-  if G.ballsRemaining == 0 and G.gameScore >= G.goalScore then
-	WinLevel()
-  elseif G.ballsRemaining == 0 and G.gameScore <= G.goalScore then
-    LoseLevel()
-  end
+	if G.ballsRemaining == 0 then
+		if G.gameScore >= G.goalScore then
+			G.gameState = G.win
+		else
+			G.gameState = G.lose
+		end
+	end
 end 
 
 function HideTheBall(ball)
@@ -158,19 +190,26 @@ function HideTheBall(ball)
   G.EndRound()
 end
 
-function WinLevel()
-  --win if all pegs cleared
-  Debug:PrintLine("You Win")
+function DisplayStatusText(self)
+	if (G.gameState == G.win) then
+		Debug:PrintAt( (G.width / 2) - 75, G.height / 2, "You Win!", Vision.V_RGBA_YELLOW, G.fontPath)
+	elseif (G.gameState == G.lose) then
+		Debug:PrintAt( (G.width / 2 - 75), G.height / 2, "You Lose!", Vision.V_RGBA_RED, G.fontPath)
+	end
+	
+	Debug:PrintAt( (G.width / 2) - 200, G.height * 3 / 5, "Press Space to Play Again", Vision.V_RGBA_YELLOW, G.fontPath)
 end
 
-function LoseLevel()
-	--lose if not all pegs cleared
-	Debug:PrintLine("You Lose")
+function DisplayGameStats(self)
+	Debug:PrintAt(G.width * 1 / 10, G.height * 1 / 10, "Points: " .. G.gameScore, Vision.V_RGBA_YELLOW, G.fontPath)
+	Debug:PrintAt(G.width * 1 / 10, G.height * 2 / 10, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW, G.fontPath)
+	Debug:PrintAt(G.width * 2 / 3, G.height * 1 / 10, "Goal Score: " .. G.goalScore, Vision.V_RGBA_YELLOW, G.fontPath)
 end
 
 function HideThePeg(peg)
 	peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
 	peg:SetVisible(false)
+	Debug:PrintLine("Removing a peg!")
 end
 
 function ShowThePeg(peg)
@@ -179,7 +218,7 @@ function ShowThePeg(peg)
 	peg:GetComponentOfType("SimplePeg"):SetProperty("m_hitCount", 0)
 end
 
-function ResetLevel()
+function ResetLevel(self)
 	--make all pegs visible, re-activate rigid bodies and Set Hit Count to 0
 	local pegParent = Game:GetEntity("PegParent")
 	local numChildren = pegParent:GetNumChildren()
@@ -191,13 +230,24 @@ function ResetLevel()
 		end
 	end
     
-	
 	numChildren = pegParent:GetNumChildren()
 	
-	--member vars
+	--reset the global game vars
 	G.ballInPlay = false
 	G.gameScore = 0
 	G.pegsHit = 0
-	G.ballsRemaining = 5
+	G.ballsRemaining = self.numLives
 	G.goalScore = 1750
+	G.gameState = G.playing
+	
+	G.ResetBucket()
+	ResetCannon(self)
 end
+
+function ResetTheBucket()
+	G.bucket:SetPosition(G.bucketStartPos)
+end
+
+function ResetCannon(self)
+	self:SetOrientation(self.startRot)
+end 
