@@ -8,7 +8,8 @@ function OnAfterSceneLoaded(self)
 	Vision.Assert(self.pegComp ~= nil, "Peg Component is Missing")
     
 	self.maxHitCount = 3
-	self.isActive = true
+	
+	G.ResetPeg = Reset
 end
 
 -- info fields: HitPoint, HitNormal, Force, RelativeVelocity,
@@ -34,8 +35,8 @@ function OnCollision(self, info)
         local hasHitLimit = self.pegComp:GetProperty("m_hasHitLimit")
 		if hasHitLimit and (hitCount >= self.maxHitCount) then
 			G.HidePeg(self)
-		--elseif (self.isActive) then
-		--	Deactivate(self)
+		elseif (not hasHitLimit) then
+			Deactivate(self)
 		end
 		
 		--set the score multiplier
@@ -56,18 +57,18 @@ function OnCollision(self, info)
 	end
 end
 
-
 function Deactivate(self)
 	--turn off the glow material to show it's been hit
-	--[[this section does not work
-	local paramChanged = self:GetMesh():SetEffect("SurfaceTexture", "Shaders\Library01.ShaderLib", "GlowSwitch", "GlowSwitch=0")
-	local mesh = self:GetMesh()
-	local name = mesh:GetName()
-	local surface = mesh:GetSurface(name)
-	local wasParamChanged = mesh:SetEffect(name, "Shaders\Library01.ShaderLib", "GlowSwitch", "GlowSwitch=0")
-	if(paramChanged) then
-		Debug:PrintLine("changed")
-	end
-	--]]
-	self.active = false
+	self:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=.5")
+end
+
+function Activate(peg)
+	peg:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
+end
+
+function Reset(peg)
+	local pegComponent = peg:GetComponentOfType("SimplePeg")
+	pegComponent:SetProperty("m_scoreMultiplier", 1)
+	pegComponent:SetProperty("m_hitCount", 0)
+	peg:SetTechnique(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
 end

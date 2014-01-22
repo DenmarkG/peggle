@@ -33,11 +33,22 @@ function OnAfterSceneLoaded(self)
 		self.map:MapTrigger("RIGHT", "KEYBOARD", "CT_KB_RIGHT")
 		self.map:MapTrigger("LEFT", "KEYBOARD", "CT_KB_LEFT")
 		self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true})
+		self.map:MapTrigger("RESET", "KEYBOARD", "CT_KB_R", {once = true}) 
 		
 		--get and store the inital position
 		self.startRot = self:GetOrientation()
 		
-		ResetLevel(self)
+		
+		--to avoid issues, I'm going to take the necessary actions here, since there is no
+		--ResetLevel(self)
+		G.ballInPlay = false
+		G.gameScore = 0
+		G.pegsHit = 0
+		G.ballsRemaining = self.initialBallCount
+		G.goalScore = 1750
+		G.gameState = G.playing
+		
+		self.on = true
 	end
 end
 
@@ -53,10 +64,16 @@ function OnExpose(self)
 	self.RotationSpeed = 50
 	self.impulseScalar = 3
 	self.ballBounce = .75
-	self.numLives = 3
+	self.initialBallCount = 3
 end
 
 function OnThink(self)
+	if (self.map:GetTrigger("RESET") > 0) then
+		--ResetLevel(self)
+		Toggle(self)
+		ResetLevel(self)
+	end
+
 	--Show the 'UI'
 	DisplayGameStats(self)
 	
@@ -147,16 +164,13 @@ function EndTheRound()
 	local pegParent = Game:GetEntity("PegParent")
 	local numChildren = pegParent:GetNumChildren()
 	for i = 0, pegParent:GetNumChildren() - 1, 1 do
-		Debug:Log("Checking peg!")
 		local peg = pegParent:GetChild(i)
 		if peg ~= nil then
-			Debug:Log("Checking peg 2!")
 			local pegComp = peg:GetComponentOfType("SimplePeg")
 			if pegComp ~= nil then
 				local hasHitLimit = pegComp:GetProperty("m_hasHitLimit")
 				local hitCount = pegComp:GetProperty("m_hitCount")
 				if (not hasHitLimit) and (hitCount > 0) then
-					Debug:PrintLine("Found peg! " .. hitCount)
 					HideThePeg(peg)
 				end
 			end
@@ -209,19 +223,17 @@ end
 function HideThePeg(peg)
 	peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
 	peg:SetVisible(false)
-	Debug:PrintLine("Removing a peg!")
 end
 
 function ShowThePeg(peg)
 	peg:GetComponentOfType("vHavokRigidBody"):SetActive(true)
 	peg:SetVisible(true)
-	peg:GetComponentOfType("SimplePeg"):SetProperty("m_hitCount", 0)
+	G.ResetPeg(peg)
 end
 
 function ResetLevel(self)
 	--make all pegs visible, re-activate rigid bodies and Set Hit Count to 0
 	local pegParent = Game:GetEntity("PegParent")
-	local numChildren = pegParent:GetNumChildren()
 	
 	for i = 0, pegParent:GetNumChildren() - 1, 1 do
 		local peg = pegParent:GetChild(i)
@@ -229,14 +241,18 @@ function ResetLevel(self)
 			ShowThePeg(peg)
 		end
 	end
-    
-	numChildren = pegParent:GetNumChildren()
+	
+	if (G.ballInPlay) then
+		--reomove the ball from play
+		local ball = Game:GetEntity("GameBall")
+		HideTheBall(ball)
+	end
 	
 	--reset the global game vars
 	G.ballInPlay = false
 	G.gameScore = 0
 	G.pegsHit = 0
-	G.ballsRemaining = self.numLives
+	G.ballsRemaining = self.initialBallCount
 	G.goalScore = 1750
 	G.gameState = G.playing
 	
@@ -251,3 +267,26 @@ end
 function ResetCannon(self)
 	self:SetOrientation(self.startRot)
 end 
+
+
+
+function Toggle(self)
+	local ball = Game:GetEntity("TestPeg")
+	ball:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
+--[[
+	local pegParent = Game:GetEntity("PegParent")
+	
+	for i = 0, pegParent:GetNumChildren() - 1, 1 do
+		local peg = pegParent:GetChild(i)
+		if peg ~= nil then
+			if self.on then
+				peg:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=.5")
+				self.on = false
+			else
+				peg:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
+				self.on = true
+			end
+		end
+	end
+	--]]
+end

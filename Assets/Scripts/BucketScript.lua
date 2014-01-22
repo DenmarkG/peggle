@@ -26,8 +26,8 @@ end
 
 function OnObjectEnter(self, object)
 	if (object:GetKey() == "GameBall") then
-		G.HideBall(object)
 		G.ballsRemaining = G.ballsRemaining + 1
+		G.HideBall(object)
 		G.gameScore = G.gameScore + self.bonusPoints
 	end
 end

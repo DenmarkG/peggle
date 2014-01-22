@@ -35,12 +35,9 @@ public:
 PegglePluginClass g_pegglePluginClassInstance;
 
 DECLARE_THIS_MODULE(g_peggleModule, MAKE_VERSION(1,0),
-					//#todo #bettercomment
-                    "Simple Plugin", 
-						//#todo #yournamebro
-                    "Havok",
-					//#todo #bettercomment
-                    "A simple plugin to allow use of the Simple Peg component", &g_pegglePluginClassInstance);
+                    "Peggle Game Plugin", 
+                    "Denmark",
+                    "A plugin to allow use of the Simple Peg component in the Editor", &g_pegglePluginClassInstance);
 
 //--------------------------------------------------------------------------------------------
 //  Use this to get and initialize the plugin when you link statically
