@@ -25,9 +25,9 @@ function OnAfterSceneLoaded(self)
 		G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
 		G.bucket = Game:GetEntity("BallBucket")
 		G.bucketStartPos = bucket:GetPosition()
+		G.zeroVector = Vision.hkvVec3(0,0,0)
 		
 		G.isWindows = (Application:GetPlatformName() == "WIN32DX9" or Application:GetPlatformName() == "WIN32DX11")
-		
 		G.w, G.h = Screen:GetViewportSize()
 		
 	else
@@ -47,9 +47,7 @@ function OnAfterSceneLoaded(self)
 		--get and store the inital position
 		self.startRot = self:GetOrientation()
 		
-		
 		--to avoid issues, I'm going to take the necessary actions here, since there is no
-		--ResetLevel(self)
 		G.ballInPlay = false
 		G.gameScore = 0
 		G.pegsHit = 0
@@ -58,6 +56,11 @@ function OnAfterSceneLoaded(self)
 		G.gameState = G.playing
 		
 		self.on = true
+		
+		self.gameBall = Game:CreateEntity(G.ballHeaven, "VisBaseEntity_cl", "Models/MOD_GameBall.MODEL", "GameBall")
+		local rigidBody = self.gameBall:AddComponentOfType("vHavokRigidBody")
+		rigidBody:SetRestitution(self.ballBounce)
+		rigidBody:SetActive(false)
 	end
 end
 
@@ -78,8 +81,6 @@ end
 
 function OnThink(self)
 	if (self.map:GetTrigger("RESET") > 0) then
-		--ResetLevel(self)
-		--Toggle(self)
 		ResetLevel(self)
 	end
 
@@ -93,9 +94,9 @@ function OnThink(self)
 		local fire = self.map:GetTrigger("FIRE01")
 	  
 		--check for input
-		if (x~=0) or (fire>0) then
+		if (x~=0) or (fire > 0) then
 			--fire the ball if the spacebar is pressed
-			if (fire>0) and ( not G.ballInPlay) then
+			if (fire > 0 ) and ( not G.ballInPlay) then
 			  FireTheBall(self)
 			end
 			
@@ -139,32 +140,29 @@ function LimitRotation(self, pOrientation)
   return rotation
 end
 
-function FireTheBall(self)
-  --find the spawn point
-  local spawnObject = Game:GetEntity("BallSpawnPoint")
-  
-  --get the spawn position and the cannon position
-  local spawnPos = spawnObject:GetPosition()
-  
-  --spawn the ball and add the rigidbody component
-  self.gameBall = Game:CreateEntity(spawnPos, "VisBaseEntity_cl", "Models/MOD_GameBall.MODEL", "GameBall")
-  local rigidBody = self.gameBall:AddComponentOfType("vHavokRigidBody")
-  rigidBody:SetRestitution(self.ballBounce)
+function FireTheBall(self)	
+	--find the spawn pos
+	local spawnPos = Game:GetEntity("BallSpawnPoint"):GetPosition()
 
-  --find the direction to apply the impulse
-  local impulseVector = spawnPos - self:GetPosition()
-  local length = 5000 - impulseVector:getLength()
-  
-  if(length < 1) then
-    length = 1
-  end
-  
-  rigidBody:SetActive(true)
-  impulseVector:setLength(length)
-  rigidBody:ApplyLinearImpulse(impulseVector * self.impulseScalar)
-  
-  G.ballsRemaining = G.ballsRemaining - 1
-  G.ballInPlay = true
+	--move the ball to the spawn position
+	local rigidBody = self.gameBall:GetComponentOfType("vHavokRigidBody")
+	
+	--find the direction to apply the impulse
+	local impulseVector = spawnPos - self:GetPosition()
+	local length = 5000 - impulseVector:getLength()
+
+	if(length < 1) then
+	length = 1
+	end
+	
+	rigidBody:SetActive(true)
+	rigidBody:SetPosition(spawnPos)
+	impulseVector:setLength(length)
+	rigidBody:ApplyLinearImpulse(impulseVector * self.impulseScalar)
+	self.gameBall:SetVisible(true)
+	
+	G.ballsRemaining = G.ballsRemaining - 1
+	G.ballInPlay = true
 end
 
 function EndTheRound()
@@ -197,18 +195,20 @@ function EndTheRound()
 end 
 
 function HideTheBall(ball)
-  --get the rigid body on the ball, then set it to inactive
-  local ballRB = ball:GetComponentOfType("vHavokRigidBody")
-  ballRB:SetActive(false)
-    
-   --make the ball invisible
-  ball:SetVisible(false)
-    
-  ball:SetPosition(G.ballHeaven)
-  
-  --set the global ball in play var to false
-  G.ballInPlay = false
-  G.EndRound()
+	--get the rigid body on the ball, then set it to inactive
+	local ballRB = ball:GetComponentOfType("vHavokRigidBody")
+	ballRB:SetActive(false)
+
+	--make the ball invisible
+	ball:SetVisible(false)
+	--move the ball out of view
+	ballRB:SetPosition(G.ballHeaven)
+	--remove any velocity on the ball
+	ballRB:SetAngularVelocity(G.zeroVector)
+	ballRB:SetLinearVelocity(G.zeroVector)
+	--set the global ball in play var to false
+	G.ballInPlay = false
+	EndTheRound()
 end
 
 function DisplayStatusText(self)
@@ -232,7 +232,6 @@ function HideThePeg(peg)
 	local pegComp = peg:GetComponentOfType("SimplePeg")
 	if (not pegComp:GetProperty("m_hasHitLimit") ) and (peg:IsVisible() ) then
 		Game:CreateEffect(peg:GetPosition(), "Particles\\PegSplosion.xml")
-		CoolDown(50)
 	end
 	
 	peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
@@ -259,7 +258,7 @@ function ResetLevel(self)
 	if (G.ballInPlay) then
 		--reomove the ball from play
 		local ball = Game:GetEntity("GameBall")
-		HideTheBall(ball)
+		HideTheBall(self.gameBall)
 	end
 	
 	--reset the global game vars
@@ -281,32 +280,3 @@ end
 function ResetCannon(self)
 	self:SetOrientation(self.startRot)
 end 
-
-
-
-function Toggle(self)
-	local ball = Game:GetEntity("TestPeg")
-	ball:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "CullMode=back;DepthWrite=true;MaterialParams=0.81,2.2974,-0.03,-0.015;AlphaThreshold=0.25;MaterialAmbient=0,0,0;GlowSwitch=1;GlowMap=Textures/MOD_PegMask.tga;")
---[[
-	local pegParent = Game:GetEntity("PegParent")
-	
-	for i = 0, pegParent:GetNumChildren() - 1, 1 do
-		local peg = pegParent:GetChild(i)
-		if peg ~= nil then
-			if self.on then
-				peg:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=.5")
-				self.on = false
-			else
-				peg:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
-				self.on = true
-			end
-		end
-	end
-	--]]
-end
-
-function CoolDown(coolDownTime)
-	while coolDownTime >= 0 do
-		coolDownTime = coolDownTime - Timer:GetTimeDiff()
-	end
-end

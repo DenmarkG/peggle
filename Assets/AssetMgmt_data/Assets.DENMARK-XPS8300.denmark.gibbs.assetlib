@@ -190,6 +190,33 @@
                 "TemplateName": "Default"
             }
         },
+        "Models/Marks_Idle_2.model": {
+            "AssetType": "Model",
+            "Common": {
+                "Tags": "__NEW_ASSET__",
+                "Dependencies": [
+                    "plainwhite.dds",
+                    "Shaders/BaseShaders.ShaderLib",
+                    "Shaders/vMaterial.ShaderLib"
+                ],
+                "Variants": [
+
+                ]
+            },
+            "File": {
+                "Hash": 1036368146,
+                "TimeStamp": 1390507648000000000,
+                "LastEditTime": 1390507687796583200
+            },
+            "Model": {
+                "LODSwitchDistances": [
+
+                ]
+            },
+            "Transformations": {
+                "TemplateName": "Default"
+            }
+        },
         "Models/MOD_BallBucket.model": {
             "AssetType": "Model",
             "Common": {
