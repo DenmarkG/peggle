@@ -62,7 +62,7 @@
                     <point pos="1,0.9961" t_in="0,0" t_out="0,0" />
                 </curve>
                 <start average="1" variation="0.25" />
-                <growth average="70" variation="0.4" />
+                <growth average="150" variation="0.4" />
             </size>
             <animation mode="0" startrandomframe="FALSE" smooth="FALSE">
                 <curve numpoints="2">

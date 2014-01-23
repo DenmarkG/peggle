@@ -25,16 +25,25 @@ function OnAfterSceneLoaded(self)
 		G.ballHeaven = Game:GetEntity("BallHeaven"):GetPosition()
 		G.bucket = Game:GetEntity("BallBucket")
 		G.bucketStartPos = bucket:GetPosition()
+		
+		G.isWindows = (Application:GetPlatformName() == "WIN32DX9" or Application:GetPlatformName() == "WIN32DX11")
+		
+		G.w, G.h = Screen:GetViewportSize()
+		
 	else
 		--create the map
 		self.map = Input:CreateMap("PlayerInputMap")
 	  
 		--map the triggers
-		self.map:MapTrigger("RIGHT", "KEYBOARD", "CT_KB_RIGHT")
-		self.map:MapTrigger("LEFT", "KEYBOARD", "CT_KB_LEFT")
-		self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true})
-		self.map:MapTrigger("RESET", "KEYBOARD", "CT_KB_R", {once = true}) 
-		
+		if G.isWindows then
+			self.map:MapTrigger("X", "MOUSE", "CT_MOUSE_NORM_DELTA_X") --this allows for movement both left and right
+			self.map:MapTrigger("FIRE01", "KEYBOARD", "CT_KB_SPACE", {onceperframe = true} )
+			self.map:MapTrigger("RESET", "KEYBOARD", "CT_KB_R", {once = true} ) 
+		else
+			self.map:MapTrigger("X", {0,0, G.w, G.h}, "CT_TOUCH_NORM_DELTA_X")
+			self.map:MapTrigger("FIRE01", "{0,0, G.w, G.h}", "CT_TOUCH_DOUBLE_TAP", {onceperframe = true} )
+			self.map:MapTrigger("RESET", {0,0, G.w, G.h}, "CT_TOUCH_TRIPLE_TAP", {once = true} ) 
+		end
 		--get and store the inital position
 		self.startRot = self:GetOrientation()
 		
@@ -45,7 +54,7 @@ function OnAfterSceneLoaded(self)
 		G.gameScore = 0
 		G.pegsHit = 0
 		G.ballsRemaining = self.initialBallCount
-		G.goalScore = 1750
+		G.goalScore = 3000
 		G.gameState = G.playing
 		
 		self.on = true
@@ -61,7 +70,7 @@ function OnBeforeSceneUnloaded(self)
 end
 
 function OnExpose(self)
-	self.RotationSpeed = 50
+	self.RotationSpeed = 100
 	self.impulseScalar = 3
 	self.ballBounce = .75
 	self.initialBallCount = 3
@@ -70,7 +79,7 @@ end
 function OnThink(self)
 	if (self.map:GetTrigger("RESET") > 0) then
 		--ResetLevel(self)
-		Toggle(self)
+		--Toggle(self)
 		ResetLevel(self)
 	end
 
@@ -80,12 +89,11 @@ function OnThink(self)
 	
 	if (G.ballsRemaining > 0) and (G.gameState == G.playing) then
 		--create the variables for input
-		local right = self.map:GetTrigger("RIGHT")
-		local left = self.map:GetTrigger("LEFT")
+		local x = self.map:GetTrigger("X")
 		local fire = self.map:GetTrigger("FIRE01")
 	  
 		--check for input
-		if (right~=0) or (left~=0) or (fire>0) then
+		if (x~=0) or (fire>0) then
 			--fire the ball if the spacebar is pressed
 			if (fire>0) and ( not G.ballInPlay) then
 			  FireTheBall(self)
@@ -97,10 +105,10 @@ function OnThink(self)
 			--set the speed to move the cannon
 			local step = self.RotationSpeed * Timer:GetTimeDiff()
 			
-			if(right>0) then
+			if(x > 0) then
 			  --move right
 			  orientation.z = orientation.z + step
-			elseif (left > 0) then
+			elseif (x < 0) then
 			  --move left
 			  orientation.z = orientation.z - step
 			end
@@ -116,7 +124,6 @@ function OnThink(self)
 			G.gameState = G.playing
 		end
 	end
-
 end
 
 function LimitRotation(self, pOrientation)
@@ -216,11 +223,18 @@ end
 
 function DisplayGameStats(self)
 	Debug:PrintAt(G.width * 1 / 10, G.height * 1 / 10, "Points: " .. G.gameScore, Vision.V_RGBA_YELLOW, G.fontPath)
-	Debug:PrintAt(G.width * 1 / 10, G.height * 2 / 10, "Lives: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW, G.fontPath)
+	Debug:PrintAt(G.width * 1 / 10, G.height * 2 / 10, "Balls: " .. G.ballsRemaining, Vision.V_RGBA_YELLOW, G.fontPath)
 	Debug:PrintAt(G.width * 2 / 3, G.height * 1 / 10, "Goal Score: " .. G.goalScore, Vision.V_RGBA_YELLOW, G.fontPath)
 end
 
 function HideThePeg(peg)
+	--if the peg is not square, call the particle effect
+	local pegComp = peg:GetComponentOfType("SimplePeg")
+	if (not pegComp:GetProperty("m_hasHitLimit") ) and (peg:IsVisible() ) then
+		Game:CreateEffect(peg:GetPosition(), "Particles\\PegSplosion.xml")
+		CoolDown(50)
+	end
+	
 	peg:GetComponentOfType("vHavokRigidBody"):SetActive(false)
 	peg:SetVisible(false)
 end
@@ -272,7 +286,7 @@ end
 
 function Toggle(self)
 	local ball = Game:GetEntity("TestPeg")
-	ball:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
+	ball:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "CullMode=back;DepthWrite=true;MaterialParams=0.81,2.2974,-0.03,-0.015;AlphaThreshold=0.25;MaterialAmbient=0,0,0;GlowSwitch=1;GlowMap=Textures/MOD_PegMask.tga;")
 --[[
 	local pegParent = Game:GetEntity("PegParent")
 	
@@ -289,4 +303,10 @@ function Toggle(self)
 		end
 	end
 	--]]
+end
+
+function CoolDown(coolDownTime)
+	while coolDownTime >= 0 do
+		coolDownTime = coolDownTime - Timer:GetTimeDiff()
+	end
 end

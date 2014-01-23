@@ -22,7 +22,7 @@ public:
 
 		//Define criteria here that allows the editor to attach this component to 
 		//  the passed object.In this example, the object should be derived from 
-		//  VisObject3D_cl eg it can be positionable. 
+		//  VisObject3D_cl e.g. it can be positionable. 
 		if(!pObject->IsOfType( V_RUNTIME_CLASS( VisObject3D_cl )))
 		{
 			sErrorMsgOut = "Component can only be added to instances of VisObject3D_cl or derived classes.";

@@ -1,5 +1,4 @@
-
-function OnAfterSceneLoaded(self)
+      function OnAfterSceneLoaded(self)
 	--get the vHavokRigidBody attached to this component
 	self.rigidBody = self:GetComponentOfType("vHavokRigidBody")
 	Vision.Assert(self.rigidBody ~= nil, "Rigid Body is Missing")
@@ -59,7 +58,7 @@ end
 
 function Deactivate(self)
 	--turn off the glow material to show it's been hit
-	self:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=.5")
+	--self:SetEffect(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=.5")
 end
 
 function Activate(peg)
@@ -70,5 +69,5 @@ function Reset(peg)
 	local pegComponent = peg:GetComponentOfType("SimplePeg")
 	pegComponent:SetProperty("m_scoreMultiplier", 1)
 	pegComponent:SetProperty("m_hitCount", 0)
-	peg:SetTechnique(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
+	--peg:SetTechnique(0, "Shaders/Library01", "NormalPeg.forward", "GlowSwitch=1")
 end
