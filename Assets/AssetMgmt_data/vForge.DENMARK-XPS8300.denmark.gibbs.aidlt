@@ -5,7 +5,6 @@ meshes/sm_envrionment.vcolmesh	meshes/sm_envrionment.vcolmesh
 meshes/sm_envrionment.vmesh	meshes/sm_envrionment.vmesh	LODSwitchDistances=
 meshes/sm_frontwall.vcolmesh	meshes/sm_frontwall.vcolmesh	
 meshes/sm_frontwall.vmesh	meshes/sm_frontwall.vmesh	LODSwitchDistances=
-models/marks_idle_2.model	models/marks_idle_2.model	LODSwitchDistances=
 models/mod_ballbucket.model	models/mod_ballbucket.model	LODSwitchDistances=
 models/mod_ballbucket.vcolmesh	models/mod_ballbucket.vcolmesh	
 models/mod_bluecapsule.model	models/mod_bluecapsule.model	LODSwitchDistances=
